@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio - Paco Hybord - BTS SIO SLAM</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#3b82f6', // blue-500
+                        'secondary-gray': '#1f2937', // gray-800
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-900 text-gray-200 font-sans pt-32">
+
+    <header class="fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-4 mt-6 max-w-4xl">
+            <nav
+                class="bg-gray-900/95 shadow-2xl border border-white-900/50 rounded-xl px-6 py-4 flex justify-center items-center relative">
+
+                <ul id="main-nav" class="flex space-x-10 text-base font-semibold">
+                    <li><a href="#apropos"
+                            class="nav-link text-gray-300 hover:text-primary-blue transition duration-300 ease-in-out py-1">À
+                            Propos</a></li>
+                    <li><a href="#competences"
+                            class="nav-link text-gray-300 hover:text-primary-blue transition duration-300 ease-in-out py-1">Compétences</a>
+                    </li>
+                    <li><a href="#projets"
+                            class="nav-link text-gray-300 hover:text-primary-blue transition duration-300 ease-in-out py-1">Projets</a>
+                    </li>
+                    <li><a href="#contact"
+                            class="nav-link text-gray-300 hover:text-primary-blue transition duration-300 ease-in-out py-1">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="accueil" class="min-h-screen flex items-center justify-center text-center px-4">
+        <div class="max-w-4xl space-y-6">
+            <h1 class="text-6xl md:text-8xl font-extrabold leading-none text-white">
+                Salut, je suis
+                <span id="typewriter-name" class="text-primary-blue inline-block min-w-[200px]">
+                </span>.
+            </h1>
+            <p id="glitch-slogan" class="text-3xl md:text-4xl text-gray-400 h-10 font-mono">
+            </p>
+            <a href="#projets" class="
+                mt-8 inline-block py-3 px-8 text-xl font-semibold
+                text-white bg-primary-blue rounded-lg transition-all duration-300
+                hover:bg-blue-600 hover:scale-105 shadow-2xl shadow-primary-blue/30
+            ">
+                Découvrez Mes Projets
+            </a>
+        </div>
+    </section>
+
+    <section id="apropos" class="py-20 md:py-32 border-t border-gray-700">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h2 class="section-title">À Propos de Moi</h2>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div
+                    class="card-reveal p-6 bg-gray-800 rounded-xl shadow-2xl text-center transition duration-500 ease-out transform translate-y-10 opacity-0">
+                    <div
+                        class-="w-64 h-64 mx-auto bg-gray-700 rounded-full flex items-center justify-center mb-4 text-lg text-gray-400">
+                        [Votre Photo]
+                    </div>
+                    <p class="text-primary-blue font-bold">Développeur Back-end Orienté Objet</p>
+                </div>
+
+                <div class="space-y-6 text-lg text-gray-300 card-reveal transition duration-500 ease-out transform translate-y-10 opacity-0"
+                    data-delay="100">
+                    <p>
+                        Étudiant en **BTS SIO option SLAM**, je maîtrise l'ensemble du cycle de vie logiciel : analyse
+                        des besoins, conception, développement et maintenance.
+                    </p>
+                    <p>
+                        Mes technologies de prédilection incluent **PHP, SQL, et le framework Symfony/Laravel** pour des
+                        applications robustes. Je suis également à l'aise avec les bonnes pratiques **DevOps (Git,
+                        Docker)**.
+                    </p>
+                    <p>
+                        Mon objectif : créer des solutions métiers performantes, sécurisées et évolutives.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="competences" class="py-20 md:py-32 bg-gray-800 border-t border-gray-700">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h2 class="section-title text-5xl font-extrabold text-white mb-2">
+                Mes Compétences
+            </h2>
+            <h3 class="text-3xl font-bold text-primary-blue mb-8 text-center">
+                Langages et Frameworks
+            </h3>
+
+            <div class="horizontal-marquee-container border border-blue-900/50 rounded-xl shadow-2xl p-4">
+                <div class="horizontal-marquee">
+
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5"
+                        class="skill-icon">
+                    <span class="skill-separator">|</span>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3"
+                        class="skill-icon">
+                    <span class="skill-separator">|</span>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                        alt="Python" class="skill-icon">
+                    <span class="skill-separator">|</span>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP"
+                        class="skill-icon">
+                    <span class="skill-separator">|</span>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"
+                        class="skill-icon">
+                    <span class="skill-separator">|</span>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xml/xml-original.svg" alt="XML"
+                        class="skill-icon">
+                    <span class="skill-separator">|</span>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL"
+                        class="skill-icon">
+                    <span class="skill-separator">|</span>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
+                        alt="Bootstrap" class="skill-icon">
+                    <span class="skill-separator">|</span>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/json/json-original.svg" alt="JSON"
+                        class="skill-icon">
+                    <span class="skill-separator">|</span>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+                        alt="Tailwind CSS" class="skill-icon">
+                    <span class="skill-separator">|</span>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/symfony/symfony-original.svg"
+                        alt="Symfony" class="skill-icon">
+                    <span class="skill-separator">|</span>
+
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5"
+                        class="skill-icon">
+                    <span class="skill-separator">|</span>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3"
+                        class="skill-icon">
+                    <span class="skill-separator">|</span>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                        alt="Python" class="skill-icon">
+                    <span class="skill-separator">|</span>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP"
+                        class="skill-icon">
+                    <span class="skill-separator">|</span>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"
+                        class="skill-icon">
+                    <span class="skill-separator">|</span>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xml/xml-original.svg" alt="XML"
+                        class="skill-icon">
+                    <span class="skill-separator">|</span>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL"
+                        class="skill-icon">
+                    <span class="skill-separator">|</span>
+                    <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTI4IDEyOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGZpbGw9IiMwNDlmZDkiIGQ9Ik02NC41IDQuNUMzMS45IDQuNSA1LjUgMzAuOSA1LjUgNjMuNVMzMS45IDEyMi41IDY0LjUgMTIyLjUgMTIzLjUgOTYuMSAxMjMuNSA2My41IDk3LjEgNC41IDY0LjUgNC41em0wIDExMEMzNi41IDExNC41IDEzLjUgOTEuNSAxMy41IDYzLjVTMzYuNSAxMi41IDY0LjUgMTIuNSAxMTUuNSAzNS41IDExNS41IDYzLjUgOTIuNSAxMTQuNSA2NC41IDExNC41eiIvPgogICAgPHBhdGggZmlsbD0iIzA0OWZkOSIgZD0iTTY0IDI4Yy0xOS45IDAtMzYgMTYuMS0zNiAzNnMxNi4xIDM2IDM2IDM2IDM2LTE2LjEgMzYtMzYtMTYuMS0zNi0zNi0zNnptMCA2NGMtMTUuNCAwLTI4LTEyLjYtMjgtMjhzMTIuNi0yOCAyOC0yOCAyOCAxMi42IDI4IDI4LTEyLjYgMjgtMjggMjh6Ii8+Cjwvc3ZnPg=="
+                        alt="Cisco" class="skill-icon">
+                    <span class="skill-separator">|</span>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
+                        alt="Bootstrap" class="skill-icon">
+                    <span class="skill-separator">|</span>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/json/json-original.svg" alt="JSON"
+                        class="skill-icon">
+                    <span class="skill-separator">|</span>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+                        alt="Tailwind CSS" class="skill-icon">
+                    <span class="skill-separator">|</span>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/symfony/symfony-original.svg"
+                        alt="Symfony" class="skill-icon">
+                    <span class="skill-separator">|</span>
+
+                </div>
+            </div>
+
+            <p class="text-xl text-center text-gray-400 mt-8 mb-12">
+                J'utilise également ces méthodes et outils pour garantir la qualité et l'efficacité de mes projets :
+            </p>
+
+            <h3 class="text-3xl font-bold text-primary-blue mb-8 text-center">
+                Logiciels et IDE
+            </h3>
+
+            <div class="grid md:grid-cols-3 gap-8 mt-8 skill-block-equalizer">
+
+                <div class="col-span-1 p-4 bg-gray-900 rounded-xl shadow-xl">
+                    <h4 class="text-xl font-semibold text-white mb-4 text-center">IDE et Éditeurs</h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="mini-card-square">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/phpstorm/phpstorm-original.svg"
+                                alt="PhpStorm" class="mini-card-icon">
+                            <span class="text-gray-300 font-mono text-xs"></span>
+                        </div>
+                        <div class="mini-card-square">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+                                alt="VS Code" class="mini-card-icon">
+                            <span class="text-gray-300 font-mono text-xs"></span>
+                        </div>
+                        <div class="mini-card-square">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg"
+                                alt="Android Studio" class="mini-card-icon">
+                            <span class="text-gray-300 font-mono text-xs"></span>
+                        </div>
+                        <div class="mini-card-square">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-original.svg"
+                                alt="Visual Studio 2022" class="mini-card-icon">
+                            <span class="text-gray-300 font-mono text-xs"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-span-2 p-4 bg-gray-900 rounded-xl shadow-xl">
+                    <h4 class="text-xl font-semibold text-white mb-4 text-center">Logiciels et Environnement</h4>
+                    <div class="grid grid-cols-4 gap-4">
+                        <div class="mini-card-square">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"
+                                alt="Linux" class="mini-card-icon">
+                            <span class="text-gray-300 font-mono text-xs"></span>
+                        </div>
+                        <div class="mini-card-square">
+                            <img src="https://www.vectorlogo.zone/logos/canva/canva-icon.svg" alt="Canva"
+                                class="mini-card-icon">
+                            <span class="text-gray-300 font-mono text-xs"></span>
+                        </div>
+                        <div class="mini-card-square">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg"
+                                alt="Windows" class="mini-card-icon">
+                            <span class="text-gray-300 font-mono text-xs"></span>
+                        </div>
+                        <div class="mini-card-square">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                                alt="Docker" class="mini-card-icon">
+                            <span class="text-gray-300 font-mono text-xs"></span>
+                        </div>
+                        <div class="mini-card-square">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"
+                                class="mini-card-icon">
+                            <span class="text-gray-300 font-mono text-xs"></span>
+                        </div>
+                        <div class="mini-card-square">
+                            <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="Postman"
+                                class="mini-card-icon">
+                            <span class="text-gray-300 font-mono text-xs"></span>
+                        </div>
+                        <div class="mini-card-square">
+                            <img src=""
+                                alt="VirtualBox" class="mini-card-icon">
+                            <span class="text-gray-300 font-mono text-xs"></span>
+                        </div>
+                        <div class="mini-card-square">
+                            <span class="text-xl text-primary-blue font-bold"></span>
+                            <span class="text-gray-300 font-mono text-xs"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projets" class="py-20 md:py-32 border-t border-gray-700">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h2 class="section-title">Mes Réalisations SLAM</h2>
+
+            <div class="grid md:grid-cols-2 gap-10">
+
+                <div
+                    class="bg-gray-800 p-8 rounded-xl shadow-2xl hover:shadow-primary-blue/20 transition duration-300 project-card card-reveal transform translate-y-10 opacity-0">
+                    <h3 class="text-3xl font-bold text-primary-blue mb-3">Projet Gestion de Stage</h3>
+                    <p class="text-gray-400 mb-4 font-mono text-sm">PHP, Laravel, MariaDB, Docker</p>
+                    <p class="text-gray-300 mb-6">
+                        Application de suivi des conventions de stage pour l'établissement. J'ai géré le développement
+                        du Back-end : routage, ORM, authentification et API JSON.
+                    </p>
+                    <div class="space-x-4">
+                        <a href="#" class="text-lg text-white hover:text-primary-blue font-semibold">Voir la Démo »</a>
+                        <a href="#" class="text-lg text-gray-400 hover:text-white transition">Code Source</a>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 p-8 rounded-xl shadow-2xl hover:shadow-primary-blue/20 transition duration-300 project-card card-reveal transform translate-y-10 opacity-0"
+                    data-delay="100">
+                    <h3 class="text-3xl font-bold text-primary-blue mb-3">Portfolio Version 1 (Personnel)</h3>
+                    <p class="text-gray-400 mb-4 font-mono text-sm">HTML, CSS Pur, JS, Netlify</p>
+                    <p class="text-gray-300 mb-6">
+                        Première itération de mon portfolio personnel. Un projet axé sur l'optimisation du chargement et
+                        le design épuré, démontrant une bonne base en Front-end.
+                    </p>
+                    <div class="space-x-4">
+                        <a href="#" class="text-lg text-white hover:text-primary-blue font-semibold">Voir la Démo »</a>
+                        <a href="#" class="text-lg text-gray-400 hover:text-white transition">Code Source</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 md:py-32 bg-gray-800 border-t border-gray-700">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <h2 class="section-title">Contactez-moi</h2>
+            <p class="text-xl text-gray-300 mb-10">
+                Développeur SLAM disponible pour vos projets et opportunités professionnelles.
+            </p>
+
+            <a href="mailto:votre.email@exemple.com" class="
+                inline-block py-4 px-10 text-xl font-bold
+                text-white bg-green-600 rounded-lg transition-all duration-300
+                hover:bg-green-700 hover:scale-105 shadow-2xl shadow-green-500/30
+            ">
+                Envoyer un Email
+            </a>
+
+            <div class="mt-12 space-x-6 text-2xl">
+                <a href="#" target="_blank" class="text-gray-400 hover:text-primary-blue transition">LinkedIn</a>
+                <span class="text-gray-600">|</span>
+                <a href="#" target="_blank" class="text-gray-400 hover:text-primary-blue transition">GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 border-t border-gray-700 text-center text-gray-500">
+        <p>© 2025 Paco Hybord. Fait avec <span class="text-red-500">♥</span> et Tailwind.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
