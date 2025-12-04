@@ -82,50 +82,15 @@
 }
 
 
-/* --- NOUVEAUX STYLES POUR LES MINI-CARTES CARRÉES (LOGICIELS/IDE) --- */
+/* --- Styles pour les mini-cartes (Classes CSS personnalisées supprimées - Utilisation de Tailwind) --- */
 
-/* Conteneur pour forcer le ratio 1:1 et centrer le contenu */
-.mini-card-square {
-    /* Réduction du padding pour une carte plus petite (de p-3 à p-2.5) */
-    padding: 0.625rem; /* ~10px */
-
-    /* Utilise la propriété aspect-ratio pour garantir un carré */
-    aspect-ratio: 1 / 1; 
-    background-color: #1f2937; /* gray-800 */
-    border-radius: 0.5rem; /* rounded-lg */
-    
-    /* Centrage du contenu à l'intérieur de la carte */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    
-    transition: all 0.3s ease; /* Transition pour l'effet de survol */
-}
-
-/* Animation de survol (élévation) */
-.mini-card-square:hover {
-    background-color: #1f2937cc; /* gray-700/70 */
-    /* MODIFICATION CLÉ: Ajout de l'animation d'élévation */
-    transform: scale(1.05) translateY(-2px); 
-    box-shadow: 0 8px 15px rgba(59, 130, 246, 0.15); /* Légère ombre bleue */
-}
-
-/* Taille des logos à l'intérieur des mini-cartes */
-.mini-card-icon {
-    /* MODIFICATION CLÉ: Agrandissement de la taille des logos (de 30px à 40px) */
-    width: 40px; 
-    height: 40px;
-    margin-bottom: 4px; /* mb-1 */
-}
 
 /* --- STYLES POUR ÉGALISER LA HAUTEUR DES DEUX BLOCS (IDE et Logiciels) --- */
 
-/* Appliquer cette classe au conteneur parent qui contient les deux colonnes (grid md:grid-cols-3) */
+/* La fonctionnalité d'alignement est maintenant gérée par les classes Tailwind (md:flex, h-full, etc.) */
+/* La classe ci-dessous est conservée vide pour ne pas casser le code existant mais elle n'est plus nécessaire. */
 .skill-block-equalizer {
-    display: flex;
-    /* Ce style fera en sorte que les colonnes adjacentes (col-span-1 et col-span-2) aient la même hauteur */
-    align-items: stretch;
+    /* Cette fonctionnalité est maintenant assurée par les classes Tailwind: display: flex; align-items: stretch; */
 }
 
 
@@ -143,10 +108,6 @@
     50% { border-color: #3b82f6 }
 }
 
-/* --- Styles de Scroll Reveal --- */
-.card-reveal {
-    will-change: transform, opacity;
-}
 
 /* --- Styles de la Barre de Navigation (Active Link) --- */
 
