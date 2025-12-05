@@ -1,0 +1,135 @@
+/*
+|--------------------------------------------------------------------------
+| Styles CSS Personnalisés pour le Portfolio SLAM
+|--------------------------------------------------------------------------
+*/
+
+/* --- Styles Généraux des Sections --- */
+.skill-bar-container {
+    overflow: hidden;
+}
+.skill-bar {
+    width: 0;
+}
+
+/* --- DÉFILEMENT HORIZONTAL DES COMPÉTENCES (Marquee CSS) --- */
+
+/* 1. Définition de l'animation de défilement horizontal */
+@keyframes scroll-left {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        /* ESSENTIEL POUR LA BOUCLE : translate de 50% vers la gauche. */
+        transform: translateX(-50%);
+    }
+}
+
+/* 2. Conteneur Masqué (horizontal-marquee-container) */
+.horizontal-marquee-container {
+    /* Fond Blanc Actif */
+    background-color: #ffffff; 
+    border: 1px solid #3b82f6; 
+    
+    /* Masque tout ce qui dépasse à droite et à gauche */
+    overflow: hidden; 
+    /* Assure que les éléments restent sur une seule ligne */
+    white-space: nowrap; 
+    /* Hauteur réduite à 90px */
+    height: 90px;
+}
+
+/* 3. Contenu à Défiler (horizontal-marquee) */
+.horizontal-marquee {
+    width: 200%; 
+    /* Vitesse accélérée à 30s */
+    animation: scroll-left 30s linear infinite; 
+    
+    /* Propriétés Flexbox pour le centrage vertical: */
+    display: flex;
+    align-items: center;
+    padding: 0; 
+}
+
+/* 4. Styles pour les icônes et les séparateurs */
+.skill-icon {
+    height: 48px; 
+    width: 48px; 
+    
+    /* Marges horizontales, verticales annulées */
+    margin: 0 32px; 
+    
+    transition: all 0.3s;
+    flex-shrink: 0; 
+}
+
+.skill-icon:hover {
+    opacity: 0.8; 
+}
+
+.skill-separator {
+    font-size: 1.5rem;
+    color: #333; 
+    font-weight: bold;
+    /* Marges verticales annulées */
+    margin: 0 10px;
+    flex-shrink: 0; 
+}
+
+/* 5. Pause au survol */
+.horizontal-marquee-container:hover .horizontal-marquee {
+    animation-play-state: paused;
+}
+
+
+/* --- Styles pour les mini-cartes (Classes CSS personnalisées supprimées - Utilisation de Tailwind) --- */
+
+
+/* --- STYLES POUR ÉGALISER LA HAUTEUR DES DEUX BLOCS (IDE et Logiciels) --- */
+
+/* La fonctionnalité d'alignement est maintenant gérée par les classes Tailwind (md:flex, h-full, etc.) */
+/* La classe ci-dessous est conservée vide pour ne pas casser le code existant mais elle n'est plus nécessaire. */
+.skill-block-equalizer {
+    /* Cette fonctionnalité est maintenant assurée par les classes Tailwind: display: flex; align-items: stretch; */
+}
+
+
+/* --- Styles de Typewriter (Paco Hybord) */
+#typewriter-name {
+    /* Utilise la couleur bleue (Primary Blue) pour le curseur */
+    border-right: 0.15em solid #3b82f6; 
+    /* Vitesse du curseur accélérée à 0.6s */
+    animation: blink-caret 0.6s step-end infinite;
+}
+
+/* Keyframes de l'animation de clignotement */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #3b82f6 }
+}
+
+
+/* --- Styles de la Barre de Navigation (Active Link) --- */
+
+/* Base pour tous les liens de la navbar */
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Nouveau style pour le lien de navigation actif (Bleu) */
+.nav-link.active {
+    color: #3b82f6; /* primary-blue */
+}
+
+/* Indicateur actif fin et BLEU */
+.nav-link.active::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin: 4px auto 0;
+    background-color: #3b82f6; /* primary-blue */
+    border-radius: 0;
+    transition: width 0.3s ease;
+}
