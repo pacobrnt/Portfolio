@@ -73,6 +73,24 @@
                 transform: translateX(-50%);
             }
         }
+
+        /* --- MODIFICATION CLÉ POUR LA NAVBAR (Stabilité et Soulignement Simple) --- */
+        .nav-link {
+            /* Retire tout soulignement par défaut */
+            text-decoration: none !important; 
+            /* 1. Réserve l'espace de la bordure (3px) en permanence, mais invisible */
+            border-bottom: 3px solid transparent; 
+            transition: border-bottom-color 0.3s, color 0.3s;
+            display: inline-block; 
+        }
+        
+        .nav-link.active,
+        .nav-link:hover {
+            /* 2. Change uniquement la couleur de la bordure (le trait de soulignement) */
+            border-bottom-color: #3b82f6; 
+        }
+        
+        /* --- FIN : MODIFICATION CLÉ POUR LA NAVBAR --- */
     </style>
 </head>
 
@@ -85,16 +103,16 @@
 
                 <ul id="main-nav" class="flex space-x-10 text-base font-semibold">
                     <li><a href="#apropos"
-                            class="nav-link text-gray-300 hover:text-primary-blue transition duration-300 ease-in-out py-1">À
+                            class="nav-link text-gray-300 hover:text-primary-blue transition duration-300 ease-in-out py-0">À
                             Propos</a></li>
                     <li><a href="#competences"
-                            class="nav-link text-gray-300 hover:text-primary-blue transition duration-300 ease-in-out py-1">Compétences</a>
+                            class="nav-link text-gray-300 hover:text-primary-blue transition duration-300 ease-in-out py-0">Compétences</a>
                     </li>
                     <li><a href="#projets"
-                            class="nav-link text-gray-300 hover:text-primary-blue transition duration-300 ease-in-out py-1">Projets</a>
+                            class="nav-link text-gray-300 hover:text-primary-blue transition duration-300 ease-in-out py-0">Projets</a>
                     </li>
                     <li><a href="#contact"
-                            class="nav-link text-gray-300 hover:text-primary-blue transition duration-300 ease-in-out py-1">Contact</a>
+                            class="nav-link text-gray-300 hover:text-primary-blue transition duration-300 ease-in-out py-0">Contact</a>
                     </li>
                 </ul>
             </nav>
@@ -169,38 +187,114 @@
                 </div>
 
                 <div
-                    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 lg:gap-6 justify-items-center">
+                    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 lg:gap-6 justify-items-center">
 
                     <div data-aos="fade-up" data-aos-delay="200" class="certif-item">
-                        <img src="./img/ciscocybersecu.png" alt="Certification Cisco Cyber Securite" class="certif-img">
+                        <div class="certif-image-wrapper">
+                            <img src="./img/ciscocybersecu.png" alt="Certification Cisco Cyber Securite" class="certif-img">
+                            <a href="./img/introcyber.pdf" target="_blank" class="certif-link-icon" title="Voir le certificat">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                        </div>
                         <p class="certif-title">Introduction à la Cybersécurité</p>
                     </div>
 
                     <div data-aos="fade-up" data-aos-delay="300" class="certif-item">
-                        <img src="./img/certifications/certif_sql.png" alt="Certification SQL" class="certif-img">
-                        <p class="certif-title">Gestion de Base de Données (SQL)</p>
+                        <div class="certif-image-wrapper">
+                            <img src="./img/gestioncybermenace.png" alt="Certification SQL" class="certif-img">
+                            <a href="./img/gestioncybermenace.pdf" target="_blank" class="certif-link-icon" title="Voir le certificat">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                        </div>
+                        <p class="certif-title">Gestion des cybermenaces</p>
                     </div>
 
                     <div data-aos="fade-up" data-aos-delay="400" class="certif-item">
-                        <img src="./img/certifications/certif_linux.png" alt="Certification Linux" class="certif-img">
-                        <p class="certif-title">Administration Système Linux</p>
+                        <div class="certif-image-wrapper">
+                            <img src="./img/introIA.png" alt="Certification Linux" class="certif-img">
+                            <a href="./img/introIA.pdf" target="_blank" class="certif-link-icon" title="Voir le certificat">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                        </div>
+                        <p class="certif-title">Introduction à l'Intelligence Artificielle</p>
                     </div>
 
                     <div data-aos="fade-up" data-aos-delay="500" class="certif-item">
-                        <img src="./img/certifications/certif_git.png" alt="Certification Git" class="certif-img">
-                        <p class="certif-title">Git et Contrôle de Version</p>
+                        <div class="certif-image-wrapper">
+                            <img src="./img/IntroDataSciences.png" alt="Certification Git" class="certif-img">
+                            <a href="./img/IntroDataSciences.pdf" target="_blank" class="certif-link-icon" title="Voir le certificat">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                        </div>
+                        <p class="certif-title">Introduction aux Data Sciences</p>
                     </div>
 
                     <div data-aos="fade-up" data-aos-delay="600" class="certif-item">
-                        <img src="./img/certifications/certif_docker.png" alt="Certification Docker" class="certif-img">
+                        <div class="certif-image-wrapper">
+                            <img src="./img/certifications/certif_docker.png" alt="Certification Docker" class="certif-img">
+                            <a href="./pdf/certif_docker.pdf" target="_blank" class="certif-link-icon" title="Voir le certificat">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                        </div>
                         <p class="certif-title">Fondamentaux Docker</p>
                     </div>
-
-                    <div data-aos="fade-up" data-aos-delay="700" class="certif-item">
-                        <img src="./img/certifications/certif_scrum.png" alt="Certification Scrum" class="certif-img">
-                        <p class="certif-title">Méthodes Agiles (Scrum)</p>
-                    </div>
                 </div>
+
+                <div
+                    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 lg:gap-6 justify-items-center mt-8">
+                    
+                    <div data-aos="fade-up" data-aos-delay="200" class="certif-item">
+                        <div class="certif-image-wrapper">
+                            <img src="./img/HTMLCIsco.png" alt="Méthodes Agiles (Scrum)" class="certif-img">
+                            <a href="./pdf/HTMLCIsco.pdf" target="_blank" class="certif-link-icon" title="Voir le certificat">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                        </div>
+                        <p class="certif-title">HTML essentials</p>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="300" class="certif-item">
+                        <div class="certif-image-wrapper">
+                            <img src="./img/certifications/placeholder_web.png" alt="Développement Web Avancé" class="certif-img">
+                            <a href="./pdf/placeholder_web.pdf" target="_blank" class="certif-link-icon" title="Voir le certificat">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                        </div>
+                        <p class="certif-title">Développement Web Avancé</p>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="400" class="certif-item">
+                        <div class="certif-image-wrapper">
+                            <img src="./img/certifications/placeholder_api.png" alt="Conception d'API REST" class="certif-img">
+                            <a href="./pdf/placeholder_api.pdf" target="_blank" class="certif-link-icon" title="Voir le certificat">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                        </div>
+                        <p class="certif-title">Conception d'API REST</p>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="500" class="certif-item">
+                        <div class="certif-image-wrapper">
+                            <img src="./img/certifications/placeholder_java.png" alt="Programmation Java" class="certif-img">
+                            <a href="./pdf/placeholder_java.pdf" target="_blank" class="certif-link-icon" title="Voir le certificat">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                        </div>
+                        <p class="certif-title">Programmation Java</p>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="600" class="certif-item">
+                        <div class="certif-image-wrapper">
+                            <img src="./img/certifications/placeholder_cloud.png" alt="Fondamentaux Cloud" class="certif-img">
+                            <a href="./pdf/placeholder_cloud.pdf" target="_blank" class="certif-link-icon" title="Voir le certificat">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                        </div>
+                        <p class="certif-title">Fondamentaux Cloud</p>
+                    </div>
+
+                </div>
+
             </div>
             <h3 class="text-3xl font-bold text-primary-blue mb-12 text-center mt-40">
                 Langages et Frameworks
@@ -216,7 +310,7 @@
                         class="skill-icon">
                     <span class="skill-separator">|</span>
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                        alt="Python" class="skill-icon">
+                        class="skill-icon">
                     <span class="skill-separator">|</span>
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP"
                         class="skill-icon">
@@ -237,7 +331,7 @@
                         class="skill-icon">
                     <span class="skill-separator">|</span>
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
-                        alt="TypeScript" class="skill-icon">
+                        class="skill-icon">
                     <span class="skill-separator">|</span>
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
                         class="skill-icon">
@@ -267,7 +361,7 @@
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL"
                         class="skill-icon">
                     <span class="skill-separator">|</span>
-                    <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTI4IDEyOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGZpbGw9IiMwNDlmZDkiIGQ9Ik02NC41IDQuNUMzMS45IDQuNSA1LjUgMzAuOSA1LjUgNjMuNVMzMS45IDEyMi41IDY0LjUgMTIyLjUgMTIzLjUgOTYuMSAxMjMuNSA2My41IDk3LjEgNC41IDY0LjUgNC41em0wIDExMEMzNi41IDExNC.5IDEzLjUgOTEuNSAxMy41IDYzLjVTMzYuNSAxMi41IDY0LjUgMTI.1MTUuNSAzNS41IDExNS41IDYzLjUgOTIuNSAxMTQuNSA2NC41IDExNC41eiIvPgogICAgPHBhdGgfZmlsbD0iIzA0OWZkOSIgZD0iTTY0IDI4Yy0xOS45IDAtMzYgMTYuMS0zNiAzNnMxNi4xIDM2IDM2IDM2IDM2LTE2LjEgMzYtMzYtMTYuMS0zNi0zNi0zNnptMCA2NGMtMTUuNCAwLTI4LTEyLjYtMjgtMjhzMTIuNi0yOCAyOC0yOCAyOCAxMi42IDI4IDI4LTEyLjYgMjgtMjggMjh6Ii8+Cjwvc3ZnPg=="
+                    <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTI4IDEyOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGZpbGw9IiMwNDlmZDkiIGQ9Ik02NC41IDQuNUMzMS45IDQuNSA1LjUgMzAuOSA1LjUgNjMuNVMzMS45IDEyMi41IDY0LjUgMTIyLjUgMTIzLjUgOTYuMSAxMjMuNSA2My41IDk3LjEgNC41IDY0LjUgNC41em0wIDExMEMzNi41IDExNC41IDEzLjUgOTEuNSAxMy41IDYzLjVTMzYuNSAxMi41IDY0LjUgMTI.1MTE1LjUgMzUuNSAxMTUuNSA2My41IDkyLjUgMTE0LjUgNjQuNSAxMTQuNXoiLz4KICAgIDxwYXRoIGZpbGw9IiMwNDlmZDkiIGQ9Ik02NCAyOGMtMTkuOSAwLTM2IDE2LjEtMzYgMzZzMTYuMSAzNiAzNiAzNiAzNi0xNi4xIDM2LTM2LTE2LjEtMzYtMzYtMzZ6bTAgNjRjLTE1LjQgMC0yOC0xMi42LTI4LTI4czEyLjYtMjggMjgtMjggMjggMTIuNiAyOCAyOC0xMi42IDI4LTI4IDI4eiIvPgKPC9zdmc+"
                         alt="Cisco" class="skill-icon">
                     <span class="skill-separator">|</span>
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
@@ -467,9 +561,9 @@
                 <a href="#" target="_blank" class="text-gray-400 hover:text-primary-blue transition">LinkedIn</a>
                 <span class="text-gray-600">|</span>
                 <a href="#" target="_blank" class="text-gray-400 hover:text-primary-blue transition">GitHub</a>
-            </div>ææ
+            </div>
         </div>
-    </section>æ
+    </section>
 
     <footer class="py-8 border-t border-gray-700 text-center text-gray-500">
         <p>© 2025 Paco Hybord. Fait avec <span class="text-red-500">♥</span> et Tailwind.</p>

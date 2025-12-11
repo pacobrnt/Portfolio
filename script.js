@@ -146,8 +146,10 @@ const navObserverCallback = (entries) => {
 
 const navObserverOptions = {
     root: null, // viewport
-    rootMargin: '-30% 0px -30% 0px', // Déclenchement quand la section est bien au milieu
-    threshold: 0 // Le seuil est bas, la marge fait le gros du travail
+    // MODIFICATION APPLIQUÉE : Active la section dès qu'elle passe sous les 100px du haut
+    // Cela devrait corriger le problème de détection trop lente après 'À Propos'.
+    rootMargin: '-100px 0px 0px 0px', 
+    threshold: 0.01 // Déclenchement rapide
 };
 
 const navObserver = new IntersectionObserver(navObserverCallback, navObserverOptions);
@@ -268,14 +270,12 @@ let hasAnimated = false;
 
 window.addEventListener('scroll', function() {
     let navbar = document.querySelector('header nav'); 
+    
+    // CONSERVATION : Taille fixe (pas de changement de padding)
     if (window.scrollY > 50) {
         navbar.style.background = 'rgba(17, 24, 39, 0.95)';
-        navbar.style.paddingTop = '10px';
-        navbar.style.paddingBottom = '10px';
     } else {
         navbar.style.background = 'rgba(17, 24, 39, 0.9)'; 
-        navbar.style.paddingTop = '16px'; 
-        navbar.style.paddingBottom = '16px';
     }
     
     const backToTop = document.getElementById('backToTop');

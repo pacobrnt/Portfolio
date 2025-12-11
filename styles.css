@@ -88,7 +88,14 @@
 /* --- Styles pour les images de certification (carré) --- */
 .certif-item {
     position: relative; /* Conteneur pour positionner les transformations et le texte */
-    text-align: center;
+    text-align: center; 
+}
+
+/* NOUVEAU: Conteneur de l'image pour positionnement relatif de l'icône */
+.certif-image-wrapper {
+    position: relative;
+    display: inline-block;
+    line-height: 0; 
 }
 
 .certif-img {
@@ -105,18 +112,56 @@
 
 .certif-item:hover .certif-img {
     transform: translateY(-5px) scale(1.05); 
-    /* Utilisation de drop-shadow pour respecter la forme de l'image (pas de débordement gris) */
-    filter: drop-shadow(0 5px 10px rgba(59, 130, 246, 0.7)); 
+    /* AJOUT : drop-shadow et assombrissement (brightness) */
+    filter: drop-shadow(0 5px 10px rgba(59, 130, 246, 0.7)) brightness(0.5); 
     will-change: transform;
 }
 
+/* NOUVEAU : Style et positionnement de l'icône d'ouverture (l'œil) */
+.certif-link-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    /* Style de l'icône */
+    font-size: 2.5rem; 
+    color: var(--text-main); 
+    background: rgba(0, 0, 0, 0.6); 
+    border-radius: 50%;
+    padding: 10px;
+    
+    /* Masqué par défaut */
+    opacity: 0;
+    transition: opacity 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    z-index: 10; 
+}
+
+/* Révèle l'icône au survol */
+.certif-item:hover .certif-link-icon {
+    opacity: 1;
+}
+
+/* Changement de couleur au survol de l'icône elle-même */
+.certif-link-icon:hover {
+    color: var(--primary); 
+}
+
+
 /* NOUVEAU: Styles du titre de certification (texte au survol) */
 .certif-title {
+    /* *** MODIFICATION : ESPACE VERTICAL AUGMENTÉ (15px) *** */
+    /* *** MARGES AUTO POUR LE CENTRAGE HORIZONTAL *** */
+    text-align: center;
+    margin: 15px auto 0; /* Ajout de 15px en marge supérieure */
+    width: 100%; 
+    max-width: 150px; 
+    
     /* Cache le texte par défaut */
     color: var(--text-body);
-    font-size: 0.9rem;
+    font-size: 0.9rem; 
     font-weight: 500;
-    margin-top: 10px;
     opacity: 0;
     transform: translateY(10px);
     /* Transition pour l'animation d'apparition */
@@ -157,17 +202,6 @@
 /* Nouveau style pour le lien de navigation actif (Bleu) */
 .nav-link.active {
     color: #3b82f6; /* primary-blue */
-}
-/* Indicateur actif fin et BLEU */
-.nav-link.active::after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 2px;
-    margin: 4px auto 0;
-    background-color: #3b82f6; /* primary-blue */
-    border-radius: 0;
-    transition: width 0.3s ease;
 }
 
 /* --- CARDS (Glassmorphism Dynamique - Format Carré Réduit) --- */
