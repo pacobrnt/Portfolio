@@ -153,7 +153,7 @@ const navObserverOptions = {
 const navObserver = new IntersectionObserver(navObserverCallback, navObserverOptions);
 
 // ===========================================
-// 5. Effet de Tilt 3D Dynamique au Curseur (Propre)
+// 5. Effet de Tilt 3D Dynamique au Curseur (Propre) + Luminosité
 // ===========================================
 
 const tiltCards = document.querySelectorAll('.glass-card');
@@ -164,10 +164,21 @@ tiltCards.forEach(card => {
     card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
         
-        // 1. Calcul de la position relative (de -0.5 à +0.5)
+        // Coordonnées X et Y de la souris à l'intérieur de la carte
         const x = e.clientX - rect.left; // Coordonnée X dans la carte
         const y = e.clientY - rect.top; // Coordonnée Y dans la carte
         
+        // NOUVELLE LOGIQUE : Calcul et application de la position pour l'effet de luminosité
+        // Convertit les coordonnées absolues de la souris en pourcentage (0% à 100%)
+        const percentX = (x / rect.width) * 100;
+        const percentY = (y / rect.height) * 100;
+
+        // Met à jour les variables CSS personnalisées pour positionner le glow effect
+        card.style.setProperty('--mouse-x', `${percentX}%`);
+        card.style.setProperty('--mouse-y', `${percentY}%`);
+        // FIN NOUVELLE LOGIQUE
+        
+        // LOGIQUE EXISTANTE : Calcul de la position pour le Tilt 3D
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
         
@@ -189,6 +200,7 @@ tiltCards.forEach(card => {
         // Retourne à l'état initial (rotation 0) en utilisant la transition CSS (maintenant plus stable)
         card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
         card.style.boxShadow = `0 4px 30px rgba(0, 0, 0, 0.4)`;
+        // La luminosité est gérée par le CSS :hover qui passe l'opacité à 0.
     });
 });
 

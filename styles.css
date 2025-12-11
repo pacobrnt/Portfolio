@@ -37,16 +37,10 @@
 
 /* 2. Conteneur Masqué (horizontal-marquee-container) */
 .horizontal-marquee-container {
-    /* Fond Gris Clair Actif (ajusté pour le thème sombre) */
-    background-color: rgba(31, 41, 55, 0.5); 
-    border: 1px solid var(--primary); 
-    
     /* Masque tout ce qui dépasse à droite et à gauche */
     overflow: hidden; 
     /* Assure que les éléments restent sur une seule ligne */
     white-space: nowrap; 
-    /* Hauteur réduite à 90px */
-    height: 90px;
 }
 
 /* 3. Contenu à Défiler (horizontal-marquee) */
@@ -58,13 +52,14 @@
     /* Propriétés Flexbox pour le centrage vertical: */
     display: flex;
     align-items: center;
-    padding: 0; 
+    /* Ajout d'un padding vertical pour remplacer le p-4 du HTML retiré */
+    padding: 1rem 0; 
 }
 
 /* 4. Styles pour les icônes et les séparateurs */
 .skill-icon {
-    height: 48px; 
-    width: 48px; 
+    height: 64px; 
+    width: 64px; 
     
     /* Marges horizontales, verticales annulées */
     margin: 0 32px; 
@@ -87,6 +82,55 @@
 /* 5. Pause au survol */
 .horizontal-marquee-container:hover .horizontal-marquee {
     animation-play-state: paused;
+}
+
+
+/* --- Styles pour les images de certification (carré) --- */
+.certif-item {
+    position: relative; /* Conteneur pour positionner les transformations et le texte */
+    text-align: center;
+}
+
+.certif-img {
+    width: 100%; 
+    max-width: 150px; 
+    aspect-ratio: 1 / 1; 
+    object-fit: contain; 
+    
+    border-radius: 3px; 
+    
+    /* MISE À JOUR: Ajout de filter pour la transition drop-shadow */
+    transition: transform 0.3s ease, filter 0.3s ease; 
+}
+
+.certif-item:hover .certif-img {
+    transform: translateY(-5px) scale(1.05); 
+    /* Utilisation de drop-shadow pour respecter la forme de l'image (pas de débordement gris) */
+    filter: drop-shadow(0 5px 10px rgba(59, 130, 246, 0.7)); 
+    will-change: transform;
+}
+
+/* NOUVEAU: Styles du titre de certification (texte au survol) */
+.certif-title {
+    /* Cache le texte par défaut */
+    color: var(--text-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 10px;
+    opacity: 0;
+    transform: translateY(10px);
+    /* Transition pour l'animation d'apparition */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    /* Hauteur pour réserver l'espace et éviter le saut de mise en page */
+    height: 3em; 
+    display: block;
+    line-height: 1.5em;
+}
+
+.certif-item:hover .certif-title {
+    /* Révèle et déplace le texte au survol */
+    opacity: 1;
+    transform: translateY(0);
 }
 
 
@@ -127,6 +171,7 @@
 }
 
 /* --- CARDS (Glassmorphism Dynamique - Format Carré Réduit) --- */
+/* Ces styles sont toujours utilisés pour les sections IDE et PROJETS */
 .glass-card {
     background: var(--glass-bg); 
     border: 1px solid var(--glass-border);
@@ -154,6 +199,38 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    
+    /* Variables CSS pour l'effet de luminosité */
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+}
+
+/* Pseudo-élément pour l'effet de luminosité qui suit le curseur (TAILLE RÉDUITE) */
+.glass-card::before {
+    content: '';
+    position: absolute;
+    width: 120%; 
+    height: 120%; 
+    
+    /* Positionne le pseudo-élément autour du curseur (centré sur le curseur) */
+    top: calc(var(--mouse-y) - 50%); 
+    left: calc(var(--mouse-x) - 50%);
+    
+    /* Gradient radial pour l'effet de lumière bleue */
+    background: radial-gradient(circle at center, rgba(59, 130, 246, 0.25) 0%, transparent 50%);
+    
+    /* État initial : invisible. Devient visible au survol. */
+    opacity: 0; 
+    transition: opacity 0.5s ease;
+    
+    /* Place la lumière derrière le contenu de la carte */
+    z-index: 0; 
+    pointer-events: none;
+}
+
+/* Affiche la luminosité au survol */
+.glass-card:hover::before {
+    opacity: 1;
 }
 
 /* Effet au survol (UNIFORME : Ombre et bordure bleues) */

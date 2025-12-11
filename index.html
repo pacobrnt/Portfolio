@@ -7,12 +7,14 @@
     <title>Mon Portfolio - Paco Hybord - BTS SIO SLAM</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <link rel="stylesheet" href="styles.css">
-    
+
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script>
         tailwind.config = {
@@ -42,6 +44,7 @@
         }
 
         /* Styles pour la Marquee et les icônes (si non défini dans styles.css) */
+        /* Ces styles seront écrasés par styles.css, mais on les laisse ici pour le contexte Tailwind */
         .skill-icon {
             @apply w-12 h-12 md:w-16 md:h-16 transition-transform duration-300 hover:scale-110 flex-shrink-0;
         }
@@ -152,13 +155,58 @@
 
     <section id="competences" class="py-20 md:py-32 bg-secondary-gray border-t border-gray-700">
         <div class="container mx-auto px-4 max-w-6xl">
-            <h2 class="section-title">Mes Compétences</h2>
+            <h2 class="font-extrabold text-4xl text-white mb-2">Mes <span class="text-primary-blue">Compétences</span>
+            </h2>
 
-            <h3 class="text-3xl font-bold text-primary-blue mb-8 text-center">
+            <div id="certifications-container"
+                class="max-w-6xl mx-auto card-reveal transform translate-y-10 opacity-0 px-4 mt-12 mb-0"
+                data-delay="100">
+
+                <div class="text-center mb-10" data-aos="fade-up">
+                    <h3 class="text-3xl font-bold text-primary-blue mb-8 text-center">
+                        Certifications et Formations
+                    </h3>
+                </div>
+
+                <div
+                    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 lg:gap-6 justify-items-center">
+
+                    <div data-aos="fade-up" data-aos-delay="200" class="certif-item">
+                        <img src="./img/ciscocybersecu.png" alt="Certification Cisco Cyber Securite" class="certif-img">
+                        <p class="certif-title">Introduction à la Cybersécurité</p>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="300" class="certif-item">
+                        <img src="./img/certifications/certif_sql.png" alt="Certification SQL" class="certif-img">
+                        <p class="certif-title">Gestion de Base de Données (SQL)</p>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="400" class="certif-item">
+                        <img src="./img/certifications/certif_linux.png" alt="Certification Linux" class="certif-img">
+                        <p class="certif-title">Administration Système Linux</p>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="500" class="certif-item">
+                        <img src="./img/certifications/certif_git.png" alt="Certification Git" class="certif-img">
+                        <p class="certif-title">Git et Contrôle de Version</p>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="600" class="certif-item">
+                        <img src="./img/certifications/certif_docker.png" alt="Certification Docker" class="certif-img">
+                        <p class="certif-title">Fondamentaux Docker</p>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="700" class="certif-item">
+                        <img src="./img/certifications/certif_scrum.png" alt="Certification Scrum" class="certif-img">
+                        <p class="certif-title">Méthodes Agiles (Scrum)</p>
+                    </div>
+                </div>
+            </div>
+            <h3 class="text-3xl font-bold text-primary-blue mb-12 text-center mt-40">
                 Langages et Frameworks
             </h3>
 
-            <div class="horizontal-marquee-container border border-blue-900/50 rounded-xl shadow-2xl p-4 mb-12">
+            <div class="horizontal-marquee-container mb-4">
                 <div class="horizontal-marquee">
 
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5"
@@ -188,6 +236,9 @@
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/json/json-original.svg" alt="JSON"
                         class="skill-icon">
                     <span class="skill-separator">|</span>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+                        alt="TypeScript" class="skill-icon">
+                    <span class="skill-separator">|</span>
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
                         class="skill-icon">
                     <span class="skill-separator">|</span>
@@ -216,13 +267,16 @@
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL"
                         class="skill-icon">
                     <span class="skill-separator">|</span>
-                    <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTI4IDEyOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGZpbGw9IiMwNDlmZDkiIGQ9Ik02NC41IDQuNUMzMS45IDQuNSA1LjUgMzAuOSA1LjUgNjMuNVMzMS45IDEyMi41IDY0LjUgMTIyLjUgMTIzLjUgOTYuMSAxMjMuNSA2My41IDk3LjEgNC41IDY0LjUgNC41em0wIDExMEMzNi41IDExNC41IDEzLjUgOTEuNSAxMy41IDYzLjVTMzYuNSAxMi41IDY0LjUgMTIuNSAxMTUuNSAzNS41IDExNS41IDYzLjUgOTIuNSAxMTQuNSA2NC41IDExNC41eiIvPgogICAgPHBhdGgfZmlsbD0iIzA0OWZkOSIgZD0iTTY0IDI4Yy0xOS45IDAtMzYgMTYuMS0zNiAzNnMxNi4xIDM2IDM2IDM2IDM2LTE2LjEgMzYtMzYtMTYuMS0zNi0zNi0zNnptMCA2NGMtMTUuNCAwLTI4LTEyLjYtMjgtMjhzMTIuNi0yOCAyOC0yOCAyOCAxMi42IDI4IDI4LTEyLjYgMjgtMjggMjh6Ii8+Cjwvc3ZnPg=="
+                    <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTI4IDEyOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGZpbGw9IiMwNDlmZDkiIGQ9Ik02NC41IDQuNUMzMS45IDQuNSA1LjUgMzAuOSA1LjUgNjMuNVMzMS45IDEyMi41IDY0LjUgMTIyLjUgMTIzLjUgOTYuMSAxMjMuNSA2My41IDk3LjEgNC41IDY0LjUgNC41em0wIDExMEMzNi41IDExNC.5IDEzLjUgOTEuNSAxMy41IDYzLjVTMzYuNSAxMi41IDY0LjUgMTI.1MTUuNSAzNS41IDExNS41IDYzLjUgOTIuNSAxMTQuNSA2NC41IDExNC41eiIvPgogICAgPHBhdGgfZmlsbD0iIzA0OWZkOSIgZD0iTTY0IDI4Yy0xOS45IDAtMzYgMTYuMS0zNiAzNnMxNi4xIDM2IDM2IDM2IDM2LTE2LjEgMzYtMzYtMTYuMS0zNi0zNi0zNnptMCA2NGMtMTUuNCAwLTI4LTEyLjYtMjgtMjhzMTIuNi0yOCAyOC0yOCAyOCAxMi42IDI4IDI4LTEyLjYgMjgtMjggMjh6Ii8+Cjwvc3ZnPg=="
                         alt="Cisco" class="skill-icon">
                     <span class="skill-separator">|</span>
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
                         class="skill-icon">
                     <span class="skill-separator">|</span>
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/json/json-original.svg" alt="JSON"
+                        class="skill-icon">
+                    <span class="skill-separator">|</span>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
                         class="skill-icon">
                     <span class="skill-separator">|</span>
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
@@ -235,57 +289,57 @@
                 </div>
             </div>
 
-            <p class="text-xl text-center text-gray-400 mt-8 mb-12">
-                J'utilise également ces méthodes et outils pour garantir la qualité et l'efficacité de mes projets :
-            </p>
 
-            <div id="software-grid-container" class="max-w-6xl mx-auto card-reveal transform translate-y-10 opacity-0 px-4">
-
-                <h3 class="text-3xl font-bold text-primary-blue mb-8 text-center">
-                    IDE et Logiciels
-                </h3>
+            <div id="software-grid-container"
+                class="max-w-6xl mx-auto card-reveal transform translate-y-10 opacity-0 px-4 mt-40">
 
                 <section id="skills" class="py-5">
                     <div class="max-w-6xl mx-auto">
                         <div class="text-center mb-10" data-aos="fade-up">
-                            <h2 class="font-extrabold text-4xl text-white mb-2">Mon Arsenal <span class="text-primary-blue">Tech</span></h2>
-                            <p class="text-gray-400">Les outils que je maîtrise</p>
+                            <h3 class="text-3xl font-bold text-primary-blue mb-8 text-center">
+                                IDE et Logiciels
+                            </h3>
                         </div>
-                        
+
                         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
-                            
+
                             <div data-aos="fade-up" data-aos-delay="100">
                                 <div class="glass-card text-center h-full">
-                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/phpstorm/phpstorm-original.svg" alt="PHPStorm" class="card-icon mx-auto" style="width: 2.0rem; height: 2.0rem;">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/phpstorm/phpstorm-original.svg"
+                                        alt="PHPStorm" class="card-icon mx-auto" style="width: 2.0rem; height: 2.0rem;">
                                     <h4 class="card-title">PHPStorm</h4>
                                     <p class="text-gray-400">IDE professionnel pour PHP.</p>
                                 </div>
                             </div>
-                            
+
                             <div data-aos="fade-up" data-aos-delay="200">
                                 <div class="glass-card text-center h-full">
-                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" class="card-icon mx-auto" style="width: 2.0rem; height: 2.0rem;">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+                                        alt="VS Code" class="card-icon mx-auto" style="width: 2.0rem; height: 2.0rem;">
                                     <h4 class="card-title">VS Code</h4>
                                     <p class="text-gray-400">Éditeur polyvalent.</p>
                                 </div>
                             </div>
-                            
+
                             <div data-aos="fade-up" data-aos-delay="300">
                                 <div class="glass-card text-center h-full">
-                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-original.svg" alt="VS 2022" class="card-icon mx-auto" style="width: 2.0rem; height: 2.0rem;">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-original.svg"
+                                        alt="VS 2022" class="card-icon mx-auto" style="width: 2.0rem; height: 2.0rem;">
                                     <h4 class="card-title">Visual Studio</h4>
                                     <p class="text-gray-400">Pour le développement .NET.</p>
                                 </div>
                             </div>
-                            
+
                             <div data-aos="fade-up" data-aos-delay="400">
                                 <div class="glass-card text-center h-full">
-                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" alt="Android Studio" class="card-icon mx-auto" style="width: 2.0rem; height: 2.0rem;">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg"
+                                        alt="Android Studio" class="card-icon mx-auto"
+                                        style="width: 2.0rem; height: 2.0rem;">
                                     <h4 class="card-title">Android Studio</h4>
                                     <p class="text-gray-400">Développement Mobile Android.</p>
                                 </div>
                             </div>
-                            
+
                             <div data-aos="fade-up" data-aos-delay="500">
                                 <div class="glass-card text-center h-full">
                                     <i class="fas fa-sitemap card-icon"></i>
@@ -301,15 +355,16 @@
                                     <p class="text-gray-400">Administration et environnement de travail.</p>
                                 </div>
                             </div>
-                            
+
                             <div data-aos="fade-up" data-aos-delay="700">
                                 <div class="glass-card text-center h-full">
-                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="Postman" class="card-icon mx-auto" style="width: 2.0rem; height: 2.0rem;">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg"
+                                        alt="Postman" class="card-icon mx-auto" style="width: 2.0rem; height: 2.0rem;">
                                     <h4 class="card-title">Postman</h4>
                                     <p class="text-gray-400">Test et développement d'API.</p>
                                 </div>
                             </div>
-                            
+
                             <div data-aos="fade-up" data-aos-delay="800">
                                 <div class="glass-card text-center h-full">
                                     <i class="fab fa-git-alt card-icon"></i>
@@ -325,7 +380,7 @@
                                     <p class="text-gray-400">Plateforme de collaboration et CI/CD.</p>
                                 </div>
                             </div>
-                            
+
                             <div data-aos="fade-up" data-aos-delay="1000">
                                 <div class="glass-card text-center h-full">
                                     <i class="fas fa-box card-icon"></i>
@@ -334,7 +389,7 @@
                                 </div>
                             </div>
 
-                             <div data-aos="fade-up" data-aos-delay="1100">
+                            <div data-aos="fade-up" data-aos-delay="1100">
                                 <div class="glass-card text-center h-full">
                                     <i class="fas fa-database card-icon"></i>
                                     <h4 class="card-title">MariaDB</h4>
@@ -353,7 +408,7 @@
                     </div>
                 </section>
             </div>
-            </div>
+        </div>
     </section>
 
     <section id="projets" class="py-20 md:py-32 border-t border-gray-700">
@@ -412,9 +467,9 @@
                 <a href="#" target="_blank" class="text-gray-400 hover:text-primary-blue transition">LinkedIn</a>
                 <span class="text-gray-600">|</span>
                 <a href="#" target="_blank" class="text-gray-400 hover:text-primary-blue transition">GitHub</a>
-            </div>
+            </div>ææ
         </div>
-    </section>
+    </section>æ
 
     <footer class="py-8 border-t border-gray-700 text-center text-gray-500">
         <p>© 2025 Paco Hybord. Fait avec <span class="text-red-500">♥</span> et Tailwind.</p>
@@ -424,4 +479,5 @@
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
