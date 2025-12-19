@@ -143,29 +143,70 @@
             <h2 class="section-title">À Propos de Moi</h2>
 
             <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div
-                    class="card-reveal p-6 bg-gray-800 rounded-xl shadow-2xl text-center transition duration-500 ease-out transform translate-y-10 opacity-0">
-                    <div
-                        class="w-64 h-64 mx-auto bg-gray-700 rounded-full flex items-center justify-center mb-4 text-lg text-gray-400">
-                        [Votre Photo]
+                <div class="space-y-8 card-reveal transition duration-500 ease-out transform translate-y-10 opacity-0">
+                    <div class="space-y-4 text-lg text-gray-300">
+                        <p>
+                            Bonjour ! Je suis <span class="text-primary-blue font-bold">Paco Hybord</span>, étudiant en 
+                            <span class="font-semibold">BTS SIO option SLAM</span> (Solutions Logicielles et Applications Métiers).
+                        </p>
+                        <p>
+                            Passionné par le développement back-end, je maîtrise l'ensemble du cycle de vie logiciel : 
+                            analyse des besoins, conception, développement et maintenance d'applications robustes et sécurisées.
+                        </p>
+                        <p>
+                            Mes technologies de prédilection incluent <span class="text-primary-blue font-semibold">PHP, SQL, 
+                            Symfony/Laravel</span>, ainsi que les bonnes pratiques <span class="font-semibold">DevOps (Git, Docker)</span>.
+                        </p>
+                        <p>
+                            Mon objectif : créer des solutions métiers performantes, sécurisées et évolutives qui répondent 
+                            aux besoins réels des utilisateurs.
+                        </p>
                     </div>
-                    <p class="text-primary-blue font-bold">Développeur Back-end Orienté Objet</p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <button class="interactive-btn group">
+                            <div class="btn-content">
+                                <i class="fas fa-file-pdf text-2xl mb-2 group-hover:scale-110 transition-transform"></i>
+                                <span class="font-semibold">Mon CV</span>
+                            </div>
+                        </button>
+
+                        <button class="interactive-btn group">
+                            <div class="btn-content">
+                                <i class="fas fa-table text-2xl mb-2 group-hover:scale-110 transition-transform"></i>
+                                <span class="font-semibold">Tableau de Compétences</span>
+                            </div>
+                        </button>
+
+                        <button class="interactive-btn group">
+                            <div class="btn-content">
+                                <i class="fas fa-rss text-2xl mb-2 group-hover:scale-110 transition-transform"></i>
+                                <span class="font-semibold">Veille Informationnelle</span>
+                            </div>
+                        </button>
+                    </div>
+
+                    <div class="flex gap-6 justify-center sm:justify-start">
+                        <a href="#" target="_blank" class="social-btn github-btn group">
+                            <i class="fab fa-github text-4xl group-hover:rotate-[360deg] transition-transform duration-500"></i>
+                        </a>
+                        <a href="#" target="_blank" class="social-btn linkedin-btn group">
+                            <i class="fab fa-linkedin text-4xl group-hover:rotate-[360deg] transition-transform duration-500"></i>
+                        </a>
+                    </div>
                 </div>
 
-                <div class="space-y-6 text-lg text-gray-300 card-reveal transition duration-500 ease-out transform translate-y-10 opacity-0"
-                    data-delay="100">
-                    <p>
-                        Étudiant en **BTS SIO option SLAM**, je maîtrise l'ensemble du cycle de vie logiciel : analyse
-                        des besoins, conception, développement et maintenance.
-                    </p>
-                    <p>
-                        Mes technologies de prédilection incluent **PHP, SQL, et le framework Symfony/Laravel** pour des
-                        applications robustes. Je suis également à l'aise avec les bonnes pratiques **DevOps (Git,
-                        Docker)**.
-                    </p>
-                    <p>
-                        Mon objectif : créer des solutions métiers performantes, sécurisées et évolutives.
-                    </p>
+                <div class="card-reveal transition duration-500 ease-out transform translate-y-10 opacity-0 relative" data-delay="100">
+                    <div class="orbit-system-container w-full h-[500px] flex justify-center items-center relative">
+                        
+                        <div class="central-photo-wrapper relative z-20 w-48 h-48 rounded-full border-4 border-primary-blue shadow-[0_0_30px_rgba(59,130,246,0.5)] overflow-hidden">
+                             <img src="./img/selfie.JPG" alt="Paco Hybord" class="w-full h-full object-cover">
+                        </div>
+
+                        <div class="orbit-container absolute inset-0 z-10 pointer-events-none">
+                            </div>
+                        
+                    </div>
                 </div>
             </div>
         </div>

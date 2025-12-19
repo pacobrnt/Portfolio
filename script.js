@@ -208,11 +208,117 @@ tiltCards.forEach(card => {
 
 
 // ===========================================
-// 6. Exécution au Chargement de la Page
+// 7. Animation des boutons interactifs (Ripple Effect)
+// ===========================================
+const interactiveBtns = document.querySelectorAll('.interactive-btn');
+
+interactiveBtns.forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const ripple = document.createElement('span');
+        ripple.style.position = 'absolute';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.style.width = '0px';
+        ripple.style.height = '0px';
+        ripple.style.borderRadius = '50%';
+        ripple.style.background = 'rgba(59, 130, 246, 0.5)';
+        ripple.style.transform = 'translate(-50%, -50%)';
+        ripple.style.animation = 'ripple-effect 0.6s ease-out';
+        ripple.style.pointerEvents = 'none';
+        
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+            ripple.remove();
+        }, 600);
+    });
+});
+
+// Keyframes pour l'effet ripple (ajouté dynamiquement)
+if (!document.getElementById('ripple-keyframes')) {
+    const style = document.createElement('style');
+    style.id = 'ripple-keyframes';
+    style.textContent = `
+        @keyframes ripple-effect {
+            to {
+                width: 300px;
+                height: 300px;
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// ===========================================
+// 9. Animation Solaire/Planétaire (VRAI PLANÈTES)
+// ===========================================
+const orbitContainer = document.querySelector('.orbit-container');
+
+// CONFIGURATION DES PLANÈTES RÉALISTES
+// type: correspond à la classe CSS (.planet-mars, etc.) qui donnera l'apparence
+const ORBIT_DATA = [
+    // Mars (plus proche, plus rapide, petite)
+    { radius: 130, size: 14, type: 'planet-mars', speed: 8 },
+    // Terre (milieu, vitesse moyenne, taille moyenne)
+    { radius: 180, size: 22, type: 'planet-earth', speed: 14 },
+    // Saturne (loin, lente, grande + anneaux)
+    { radius: 240, size: 30, type: 'planet-saturn', speed: 25 }
+];
+
+
+function createOrbitAnimation() {
+    if (!orbitContainer) return;
+    
+    // Créer les orbes, les cercles, et les planètes (satellites)
+    ORBIT_DATA.forEach((orbit, index) => {
+        // 1. Créer le Cercle d'Orbite (l'anneau statique)
+        const orbitCircle = document.createElement('div');
+        orbitCircle.className = 'orbit-circle';
+        // Taille du cercle = Rayon * 2
+        const diameter = orbit.radius * 2;
+        orbitCircle.style.width = `${diameter}px`;
+        orbitCircle.style.height = `${diameter}px`;
+        orbitContainer.appendChild(orbitCircle);
+        
+        // 2. Créer l'Orbe Contenant la Planète (qui tourne sur elle-même)
+        const planetOrbit = document.createElement('div');
+        planetOrbit.className = 'planet-orbit';
+        planetOrbit.style.width = `${diameter}px`;
+        planetOrbit.style.height = `${diameter}px`;
+        // Ajout d'une variable CSS pour la vitesse de rotation
+        planetOrbit.style.setProperty('--rotation-speed', `${orbit.speed}s`);
+        
+        // 3. Créer la Planète (VRAIE PLANÈTE via CSS)
+        const planet = document.createElement('div');
+        // Ajoute la classe de base .planet ET la classe spécifique (ex: .planet-mars)
+        planet.className = `planet ${orbit.type}`;
+        
+        planet.style.width = `${orbit.size}px`;
+        planet.style.height = `${orbit.size}px`;
+        
+        // Positionnement initial
+        planet.style.transform = `translateX(${orbit.radius}px) translateY(-50%)`;
+        
+        planetOrbit.appendChild(planet);
+        orbitContainer.appendChild(planetOrbit);
+    });
+}
+
+
+// ===========================================
+// 8. Exécution au Chargement de la Page
 // La fonction principale lance tous les Observateurs et Animations
 // ===========================================
 document.addEventListener('DOMContentLoaded', () => {
     
+    // Initialiser l'animation des planètes
+    createOrbitAnimation();
+
     // 2. Observer les Compétences et Cartes (Scroll Reveal)
     const skillItems = document.querySelectorAll('.skill-item');
     skillItems.forEach(item => {
@@ -310,7 +416,7 @@ if(backToTopBtn) {
     });
 }
 
-const githubUsername = 'MaitrePoisson'; 
+const githubUsername = 'pacobrnt'; 
 fetch(`https://api.github.com/users/${githubUsername}`)
     .then(response => {
         if (!response.ok) throw new Error("Utilisateur GitHub introuvable");
