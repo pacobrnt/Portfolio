@@ -1,1013 +1,383 @@
-/* |-------------------------------------------------------------------------- | Styles CSS Personnalisés pour le Portfolio SLAM |-------------------------------------------------------------------------- */
-/* --- Définition des variables pour le Glassmorphism (adaptées au thème sombre) --- */
-
 :root {
-
     --glass-bg: rgba(31, 41, 55, 0.6);
-    /* gray-800 avec transparence */
-
     --glass-border: rgba(59, 130, 246, 0.2);
-    /* primary-blue très transparente */
-
     --primary: #3b82f6;
-    /* primary-blue */
-
     --text-main: #f3f4f6;
-    /* gray-100 */
-
     --text-body: #9ca3af;
-    /* gray-400 */
-
 }
 
-
-
-
-
-/* --- Styles Généraux des Sections --- */
-
 .skill-bar-container {
-
     overflow: hidden;
-
 }
 
 .skill-bar {
-
     width: 0;
-
 }
-
-
-
-
-
-/* --- DÉFILEMENT HORIZONTAL DES COMPÉTENCES (Marquee CSS) --- */
-
-/* 1. Définition de l'animation de défilement horizontal */
 
 @keyframes scroll-left {
-
     from {
-
         transform: translateX(0);
-
     }
-
     to {
-
-        /* ESSENTIEL POUR LA BOUCLE : translate de 50% vers la gauche. */
-
         transform: translateX(-50%);
-
     }
-
 }
-
-
-
-/* 2. Conteneur Masqué (horizontal-marquee-container) */
 
 .horizontal-marquee-container {
-
-    /* Masque tout ce qui dépasse à droite et à gauche */
-
     overflow: hidden;
-
-    /* Assure que les éléments restent sur une seule ligne */
-
     white-space: nowrap;
-
 }
-
-
-
-/* 3. Contenu à Défiler (horizontal-marquee) */
 
 .horizontal-marquee {
-
     width: 200%;
-
-    /* Vitesse accélérée à 30s */
-
     animation: scroll-left 30s linear infinite;
-
-
-    /* Propriétés Flexbox pour le centrage vertical: */
-
     display: flex;
-
     align-items: center;
-
-    /* Ajout d'un padding vertical pour remplacer le p-4 du HTML retiré */
-
     padding: 1rem 0;
-
 }
 
-
-
-/* 4. Styles pour les icônes et les séparateurs */
-
 .skill-icon {
-
     height: 64px;
-
     width: 64px;
-
-
-    /* Marges horizontales, verticales annulées */
-
     margin: 0 32px;
-
-
     transition: all 0.3s;
-
     flex-shrink: 0;
-
 }
 
 .skill-icon:hover {
-
     opacity: 0.8;
-
 }
 
 .skill-separator {
-
     font-size: 1.5rem;
-
     color: var(--primary);
-
     font-weight: bold;
-
-    /* Marges verticales annulées */
-
     margin: 0 10px;
-
     flex-shrink: 0;
-
 }
-
-
-
-/* 5. Pause au survol */
 
 .horizontal-marquee-container:hover .horizontal-marquee {
-
     animation-play-state: paused;
-
 }
-
-
-
-
-
-/* --- Styles pour les images de certification (carré) --- */
 
 .certif-item {
-
     position: relative;
-    /* Conteneur pour positionner les transformations et le texte */
-
     text-align: center;
-
 }
-
-
-
-/* NOUVEAU: Conteneur de l'image pour positionnement relatif de l'icône */
 
 .certif-image-wrapper {
-
     position: relative;
-
     display: inline-block;
-
     line-height: 0;
-
 }
-
-
 
 .certif-img {
-
     width: 100%;
-
     max-width: 150px;
-
     aspect-ratio: 1 / 1;
-
     object-fit: contain;
-
-
     border-radius: 3px;
-
-
-    /* MISE À JOUR: Ajout de filter pour la transition drop-shadow */
-
     transition: transform 0.3s ease, filter 0.3s ease;
-
 }
-
-
 
 .certif-item:hover .certif-img {
-
     transform: translateY(-5px) scale(1.05);
-
-    /* AJOUT : drop-shadow et assombrissement (brightness) */
-
     filter: drop-shadow(0 5px 10px rgba(59, 130, 246, 0.7)) brightness(0.5);
-
     will-change: transform;
-
 }
-
-
-
-/* NOUVEAU : Style et positionnement de l'icône d'ouverture (l'œil) */
 
 .certif-link-icon {
-
     position: absolute;
-
     top: 50%;
-
     left: 50%;
-
     transform: translate(-50%, -50%);
-
-
-    /* Style de l'icône */
-
     font-size: 2.5rem;
-
     color: var(--text-main);
-
     background: rgba(0, 0, 0, 0.6);
-
     border-radius: 50%;
-
     padding: 10px;
-
-
-    /* Masqué par défaut */
-
     opacity: 0;
-
     transition: opacity 0.3s ease, color 0.3s ease;
-
     cursor: pointer;
-
     z-index: 10;
-
 }
-
-
-
-/* Révèle l'icône au survol */
 
 .certif-item:hover .certif-link-icon {
-
     opacity: 1;
-
 }
 
-
-
-/* Changement de couleur au survol de l'icône elle-même */
-/* MODIFICATION : Couleur forcée en bleu #3b82f6 avec !important et effet de zoom */
 .certif-link-icon:hover {
     color: #3b82f6 !important;
     background: rgba(255, 255, 255, 0.1);
     transform: translate(-50%, -50%) scale(1.1);
 }
 
-
-
-
-
-/* NOUVEAU: Styles du titre de certification (texte au survol) */
-
 .certif-title {
-
-    /* *** MODIFICATION : ESPACE VERTICAL AUGMENTÉ (15px) *** */
-
-    /* *** MARGES AUTO POUR LE CENTRAGE HORIZONTAL *** */
-
     text-align: center;
-
     margin: 15px auto 0;
-    /* Ajout de 15px en marge supérieure */
-
     width: 100%;
-
     max-width: 150px;
-
-
-    /* Cache le texte par défaut */
-
     color: var(--text-body);
-
     font-size: 0.9rem;
-
     font-weight: 500;
-
     opacity: 0;
-
     transform: translateY(10px);
-
-    /* Transition pour l'animation d'apparition */
-
     transition: opacity 0.3s ease, transform 0.3s ease;
-
-    /* Hauteur pour réserver l'espace et éviter le saut de mise en page */
-
     height: 3em;
-
     display: block;
-
     line-height: 1.5em;
-
 }
-
-
 
 .certif-item:hover .certif-title {
-
-    /* Révèle et déplace le texte au survol */
-
     opacity: 1;
-
     transform: translateY(0);
-
 }
-
-
-
-
-
-/* --- Styles de Typewriter (Paco Hybord) */
 
 #typewriter-name {
-
-    /* Utilise la couleur bleue (Primary Blue) pour le curseur */
-
     border-right: 0.15em solid #3b82f6;
-
-    /* Vitesse du curseur accélérée à 0.6s */
-
     animation: blink-caret 0.6s step-end infinite;
-
 }
 
-/* Keyframes de l'animation de clignotement */
-
 @keyframes blink-caret {
-
     from,
     to {
         border-color: transparent
     }
-
     50% {
         border-color: #3b82f6
     }
-
 }
-
-
-
-
-
-/* --- Styles de la Barre de Navigation (Active Link) --- */
-
-/* Base pour tous les liens de la navbar */
 
 .nav-link {
-
     position: relative;
-
     transition: color 0.3s ease;
-
 }
-
-/* Nouveau style pour le lien de navigation actif (Bleu) */
 
 .nav-link.active {
-
     color: #3b82f6;
-    /* primary-blue */
-
 }
-
-
-
-
-
-/* --- SECTION À PROPOS : BOUTONS INTERACTIFS --- */
 
 .interactive-btn {
-
     background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05));
-
-    border: 2px solid rgba(59, 130, 246, 0.3);
-
+    border: 1px solid rgba(59, 130, 246, 0.2);
     border-radius: 12px;
-
-    padding: 1.5rem 1rem;
-
+    padding: 1rem;
     cursor: pointer;
-
     position: relative;
-
     overflow: hidden;
-
     transition: all 0.3s ease;
-
 }
-
-
 
 .interactive-btn::before {
-
     content: '';
-
     position: absolute;
-
     top: 50%;
-
     left: 50%;
-
     width: 0;
-
     height: 0;
-
     border-radius: 50%;
-
     background: rgba(59, 130, 246, 0.2);
-
     transform: translate(-50%, -50%);
-
     transition: width 0.6s, height 0.6s;
-
 }
-
-
 
 .interactive-btn:hover::before {
-
     width: 300px;
-
     height: 300px;
-
 }
-
-
 
 .interactive-btn:hover {
-
     border-color: rgba(59, 130, 246, 0.8);
-
     transform: translateY(-5px);
-
     box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
-
 }
-
-
 
 .btn-content {
-
     position: relative;
-
     z-index: 1;
-
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
-
     color: #f3f4f6;
-
 }
-
-
-
-
-
-/* --- BOUTONS SOCIAUX (GitHub & LinkedIn) --- */
 
 .social-btn {
-
     width: 70px;
-
     height: 70px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     border-radius: 50%;
-
     position: relative;
-
     overflow: hidden;
-
     transition: all 0.3s ease;
-
     border: 2px solid transparent;
-
 }
-
-
 
 .social-btn::before {
-
     content: '';
-
     position: absolute;
-
     inset: 0;
-
     border-radius: 50%;
-
     padding: 2px;
-
     background: linear-gradient(135deg, transparent, var(--primary));
-
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-
     -webkit-mask-composite: xor;
-
     mask-composite: exclude;
-
     opacity: 0;
-
     transition: opacity 0.3s ease;
-
 }
-
-
 
 .social-btn:hover::before {
-
     opacity: 1;
-
 }
-
-
 
 .github-btn {
-
     background: rgba(51, 51, 51, 0.3);
-
     color: #f3f4f6;
-
 }
-
-
 
 .github-btn:hover {
-
     background: rgba(51, 51, 51, 0.6);
-
     transform: translateY(-5px);
-
     box-shadow: 0 10px 25px rgba(51, 51, 51, 0.5);
-
 }
-
-
 
 .linkedin-btn {
-
     background: rgba(10, 102, 194, 0.3);
-
     color: #0a66c2;
-
 }
-
-
 
 .linkedin-btn:hover {
-
     background: rgba(10, 102, 194, 0.6);
-
     transform: translateY(-5px);
-
     box-shadow: 0 10px 25px rgba(10, 102, 194, 0.5);
-
     color: #f3f4f6;
-
 }
-
-
-
-
-
-/* --- STYLES ORBITES PLANÉTAIRES (REALISTE) --- */
-
-
-
-/* Le cercle statique (l'anneau de l'orbite) */
 
 .orbit-circle {
-
     position: absolute;
-
     top: 50%;
-
     left: 50%;
-
     transform: translate(-50%, -50%);
-
     border: 1px solid rgba(255, 255, 255, 0.05);
-    /* Ligne très fine et subtile */
-
     border-radius: 50%;
-
     pointer-events: none;
-
     z-index: 10;
-
 }
-
-
-
-/* Le conteneur invisible qui tourne */
 
 .planet-orbit {
-
     position: absolute;
-
     top: 50%;
-
     left: 50%;
-
     transform: translate(-50%, -50%);
-
     border-radius: 50%;
-
     animation: spin-orbit var(--rotation-speed) linear infinite;
-
     z-index: 11;
-
     pointer-events: none;
-
 }
 
-
-
-/* La planète de base */
-
-.planet {
-
-    position: absolute;
-
-    border-radius: 50%;
-
-    z-index: 12;
-
-    /* Ombre interne pour l'effet 3D (lumière venant d'un côté) */
-
-    box-shadow: inset -4px -4px 8px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 0, 0, 0.5);
-
-}
-
-
-
-/* --- PLANÈTE MARS (Rouge/Orange) --- */
-
-.planet-mars {
-
-    /* Gradient radial pour simuler la surface rougeoyante */
-
-    background: radial-gradient(circle at 30% 30%, #ff7f50, #b22222);
-
-}
-
-
-
-/* --- PLANÈTE TERRE (Bleu/Vert/Nuages) --- */
-
-.planet-earth {
-
-    /* Fond océan bleu profond */
-
-    background: radial-gradient(circle at 30% 30%, #4facfe, #00f2fe 40%, #004e92 100%);
-
-    overflow: hidden;
-    /* Pour contenir les continents si on voulait en ajouter en CSS pur */
-
-}
-
-
-
-/* --- PLANÈTE SATURNE (Beige + Anneaux) --- */
-
+.planet-mars,
+.planet-earth,
 .planet-saturn {
-
-    /* Couleur beige gazeuse */
-
-    background: radial-gradient(circle at 30% 30%, #f4d03f, #c0a060, #8a6e2f);
-
-    position: relative;
-    /* Pour positionner l'anneau */
-
-    transform-style: preserve-3d;
-
+    position: absolute;
+    border-radius: 50%;
+    z-index: 12;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px 2px rgba(59, 130, 246, 0.8), 0 0 20px 5px rgba(59, 130, 246, 0.4);
 }
-
-
-
-/* L'anneau de Saturne (créé avec un pseudo-élément) */
 
 .planet-saturn::before {
-
-    content: '';
-
-    position: absolute;
-
-    width: 180%;
-    /* Plus large que la planète */
-
-    height: 40%;
-
-    top: 50%;
-
-    left: 50%;
-
-
-    /* Couleur de l'anneau */
-
-    border: 3px solid rgba(210, 180, 140, 0.7);
-
-    border-top: 3px solid rgba(210, 180, 140, 0.4);
-    /* Partie arrière plus sombre/transparente */
-
-    border-radius: 50%;
-
-
-    /* Inclinaison de l'anneau */
-
-    transform: translate(-50%, -50%) rotate(-20deg);
-
-
-    /* Ombre portée légère */
-
-    box-shadow: 0 0 5px rgba(184, 134, 11, 0.3);
-
+    display: none;
 }
-
-
-
-
-
-/* Animation de rotation */
 
 @keyframes spin-orbit {
-
     from {
-
         transform: translate(-50%, -50%) rotate(0deg);
-
     }
-
     to {
-
         transform: translate(-50%, -50%) rotate(360deg);
-
     }
-
 }
-
-
-
-
-
-/* --- CARDS (Glassmorphism Dynamique - Format Carré Réduit) --- */
-
-/* Ces styles sont toujours utilisés pour les sections IDE et PROJETS */
 
 .glass-card {
-
     background: var(--glass-bg);
-
     border: 1px solid var(--glass-border);
-
-
     backdrop-filter: blur(15px);
-
     border-radius: 15px;
-    /* Légèrement réduit pour un look plus compact */
-
     padding: 20px;
-    /* Réduction du padding pour réduire la taille */
-
     height: 100%;
-
-
-    /* GARANTIT une transition lisse et uniforme pour toutes les propriétés */
-
     transition: box-shadow 0.3s ease, transform 0.3s ease-out, border-color 0.3s ease;
-
-
     transform-style: preserve-3d;
-
     transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
-
-
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
-
     overflow: hidden;
-
-
     position: relative;
-
     z-index: 10;
-
-
-
-    /* Flexbox pour centrer le contenu verticalement dans le carré */
-
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
-
     justify-content: center;
-
     text-align: center;
-
-
-    /* Variables CSS pour l'effet de luminosité */
-
     --mouse-x: 50%;
-
     --mouse-y: 50%;
-
 }
-
-
-
-/* Pseudo-élément pour l'effet de luminosité qui suit le curseur (TAILLE RÉDUITE) */
 
 .glass-card::before {
-
     content: '';
-
     position: absolute;
-
     width: 120%;
-
     height: 120%;
-
-
-    /* Positionne le pseudo-élément autour du curseur (centré sur le curseur) */
-
     top: calc(var(--mouse-y) - 50%);
-
     left: calc(var(--mouse-x) - 50%);
-
-
-    /* Gradient radial pour l'effet de lumière bleue */
-
     background: radial-gradient(circle at center, rgba(59, 130, 246, 0.25) 0%, transparent 50%);
-
-
-    /* État initial : invisible. Devient visible au survol. */
-
     opacity: 0;
-
     transition: opacity 0.5s ease;
-
-
-    /* Place la lumière derrière le contenu de la carte */
-
     z-index: 0;
-
     pointer-events: none;
-
 }
-
-
-
-/* Affiche la luminosité au survol */
 
 .glass-card:hover::before {
-
     opacity: 1;
-
 }
-
-
-
-/* Effet au survol (UNIFORME : Ombre et bordure bleues) */
 
 .glass-card:hover {
-
-    /* Ombre qui simule la brillance des bords bleus, rendue plus subtile pour correspondre à l'image */
-
     box-shadow: 0 0 15px rgba(59, 130, 246, 0.5), 0 0 20px rgba(59, 130, 246, 0.2);
-
-    /* Mise en surbrillance de la bordure */
-
     border-color: rgba(59, 130, 246, 0.8);
-
     z-index: 20;
-
 }
-
-
-
-
-
-/* Icônes et Titres restent devant pour l'effet de relief */
 
 .card-icon,
 .card-title,
 .glass-card p {
-
-    /* Augmente la perspective Z pour un meilleur effet de relief */
-
     transform: translateZ(30px);
-
     transition: transform 0.3s ease;
-
     position: relative;
-
     z-index: 1;
-
 }
-
-
 
 .card-icon {
-
-    /* Cette classe est utilisée par Font Awesome et Devicons */
-
     font-size: 2.0rem;
-    /* Réduction de la taille de l'icône */
-
     color: var(--primary);
-    /* Conserve la couleur bleue pour les icônes Font Awesome par défaut */
-
     margin-bottom: 10px;
-    /* Réduction de la marge */
-
-    /* **SUPPRESSION DU FILTRE D'OMBRE BLEUE** pour laisser les logos Devicons en couleur */
-
-    /* filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.8)); */
-
 }
 
-
-
-/* Pour les images insérées (Devicons), nous garantissons la bonne taille */
-/* MODIFICATION : Ajout du filtre pour rendre les logos bleus (#3b82f6) */
 .glass-card img.card-icon {
     margin-bottom: 10px;
-    /* Ce filtre transforme l'image en couleur #3b82f6 */
     filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(202deg) brightness(98%) contrast(96%);
     transition: filter 0.3s ease;
 }
 
-
-
 .card-title {
-
     font-weight: 700;
-
     color: var(--text-main);
-
     margin-bottom: 5px;
-    /* Réduction de la marge */
-
     font-size: 1.1rem;
-    /* Réduction de la taille du titre */
-
 }
 
-
-
-/* Paragraphe */
-
 .glass-card p {
-
     color: var(--text-body);
-
     line-height: 1.4;
-    /* Réduction de l'interligne */
-
     font-size: 0.85rem;
-    /* Réduction de la taille du texte */
-
     margin-top: 0;
-
 }

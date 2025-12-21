@@ -33,18 +33,20 @@
         }
     </script>
     <style>
+        /* --- STYLE UNIFORME POUR LES TITRES H2 (SECTIONS) --- */
         .section-title {
-            /* Remis au style initial pour le fond sombre */
-            @apply text-4xl md:text-5xl font-extrabold text-white mb-12 text-center relative pb-3;
+            @apply text-3xl md:text-4xl font-bold text-white mb-16 text-center relative uppercase tracking-[0.2em];
         }
 
+        /* Le petit point lumineux sous les titres H2 */
         .section-title::after {
             content: '';
-            @apply absolute bottom-0 left-1/2 -translate-x-1/2 w-20 h-1 bg-primary-blue rounded-full;
+            @apply absolute -bottom-4 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary-blue rounded-full shadow-[0_0_10px_#3b82f6];
         }
 
-        /* Styles pour la Marquee et les icônes (si non défini dans styles.css) */
-        /* Ces styles seront écrasés par styles.css, mais on les laisse ici pour le contexte Tailwind */
+        /* --- STYLE UNIFORME POUR LES TITRES H3 (SOUS-SECTIONS) --- */
+        /* Appliqué directement via Tailwind dans le HTML : text-xl font-bold text-gray-400 uppercase tracking-widest */
+
         .skill-icon {
             @apply w-12 h-12 md:w-16 md:h-16 transition-transform duration-300 hover:scale-110 flex-shrink-0;
         }
@@ -53,7 +55,6 @@
             @apply text-primary-blue text-4xl mx-6 font-thin opacity-50 flex-shrink-0;
         }
 
-        /* Simuler les styles Marquee si styles.css n'est pas utilisé */
         .horizontal-marquee-container {
             overflow: hidden;
         }
@@ -74,11 +75,8 @@
             }
         }
 
-        /* --- MODIFICATION CLÉ POUR LA NAVBAR (Stabilité et Soulignement Simple) --- */
         .nav-link {
-            /* Retire tout soulignement par défaut */
             text-decoration: none !important;
-            /* 1. Réserve l'espace de la bordure (3px) en permanence, mais invisible */
             border-bottom: 3px solid transparent;
             transition: border-bottom-color 0.3s, color 0.3s;
             display: inline-block;
@@ -86,11 +84,8 @@
 
         .nav-link.active,
         .nav-link:hover {
-            /* 2. Change uniquement la couleur de la bordure (le trait de soulignement) */
             border-bottom-color: #3b82f6;
         }
-
-        /* --- FIN : MODIFICATION CLÉ POUR LA NAVBAR --- */
     </style>
 </head>
 
@@ -138,80 +133,94 @@
         </div>
     </section>
 
-    <section id="apropos" class="py-20 md:py-32 border-t border-gray-700">
-        <div class="container mx-auto px-4 max-w-6xl">
-            <h3 class="text-3xl font-bold text-primary-blue mb-8 text-center">
-                        A Propos de Moi
-                    </h3>
+    <section id="apropos" class="py-20 md:py-32 border-t border-gray-700 relative overflow-hidden">
 
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-8 card-reveal transition duration-500 ease-out transform translate-y-10 opacity-0">
-                    <div class="space-y-4 text-lg text-gray-300">
-                        <p>
-                            Bonjour ! Je suis <span class="text-primary-blue font-bold">Paco Hybord</span>, étudiant en
-                            <span class="font-semibold">BTS SIO option SLAM</span> (Solutions Logicielles et
-                            Applications Métiers).
-                        </p>
-                        <p>
-                            Passionné par le développement back-end, je maîtrise l'ensemble du cycle de vie logiciel :
-                            analyse des besoins, conception, développement et maintenance d'applications robustes et
-                            sécurisées.
-                        </p>
-                        <p>
-                            Mes technologies de prédilection incluent <span class="text-primary-blue font-semibold">PHP,
-                                SQL,
-                                Symfony/Laravel</span>, ainsi que les bonnes pratiques <span
-                                class="font-semibold">DevOps (Git, Docker)</span>.
-                        </p>
-                        <p>
-                            Mon objectif : créer des solutions métiers performantes, sécurisées et évolutives qui
-                            répondent
-                            aux besoins réels des utilisateurs.
-                        </p>
+        <div class="container mx-auto px-4 max-w-7xl relative z-10">
+            <h2 class="text-4xl font-bold text-gray-400 uppercase tracking-widest mb-8">À Propos de moi </h2>
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+                <div
+                    class="space-y-8 card-reveal transition duration-500 ease-out transform translate-y-10 opacity-0 order-1 lg:order-1">
+
+                    <div
+                        class="glass-panel p-8 rounded-2xl border border-gray-700/50 bg-gray-800/40 backdrop-blur-md shadow-2xl relative">
+                        <i class="fas fa-quote-right absolute top-6 right-8 text-4xl text-primary-blue/20"></i>
+
+                        <div class="space-y-6 text-lg text-gray-300 leading-relaxed">
+                            <p>
+                                Bonjour ! Je suis <span class="text-primary-blue font-bold text-xl">Paco Hybord</span>,
+                                étudiant passionné en
+                                <span class="font-semibold text-white">BTS SIO option SLAM</span>.
+                            </p>
+                            <p>
+                                Mon univers gravite autour du <span class="text-white font-medium">développement
+                                    Back-end</span>. J'aime concevoir l'architecture invisible qui rend les applications
+                                robustes, sécurisées et performantes.
+                            </p>
+                            <p>
+                                Au-delà du code, je m'intéresse aux méthodologies <span
+                                    class="text-primary-blue">DevOps</span> et à la cybersécurité.
+                            </p>
+                            <div class="pt-2 flex flex-wrap gap-3">
+                                <span
+                                    class="px-3 py-1 text-sm bg-primary-blue/10 text-primary-blue rounded-full border border-primary-blue/20">PHP
+                                    / Symfony</span>
+                                <span
+                                    class="px-3 py-1 text-sm bg-primary-blue/10 text-primary-blue rounded-full border border-primary-blue/20">SQL
+                                    & MariaDB</span>
+                                <span
+                                    class="px-3 py-1 text-sm bg-primary-blue/10 text-primary-blue rounded-full border border-primary-blue/20">Docker</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 flex items-center gap-4 pt-6 border-t border-gray-700/50">
+                            <span class="text-sm text-gray-500 uppercase font-bold tracking-wider">Me suivre :</span>
+                            <a href="#" target="_blank"
+                                class="text-gray-400 hover:text-white hover:scale-110 transition text-2xl"><i
+                                    class="fab fa-github"></i></a>
+                            <a href="#" target="_blank"
+                                class="text-gray-400 hover:text-blue-400 hover:scale-110 transition text-2xl"><i
+                                    class="fab fa-linkedin"></i></a>
+                        </div>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <button class="interactive-btn group">
-                            <div class="btn-content">
-                                <i class="fas fa-file-pdf text-2xl mb-2 group-hover:scale-110 transition-transform"></i>
-                                <span class="font-semibold">Mon CV</span>
+                        <button class="interactive-btn group w-full">
+                            <div class="btn-content flex flex-col items-center">
+                                <i
+                                    class="fas fa-file-pdf text-2xl mb-2 text-primary-blue group-hover:text-white transition-colors"></i>
+                                <span class="font-semibold text-sm">Mon CV</span>
                             </div>
                         </button>
 
-                        <button class="interactive-btn group">
-                            <div class="btn-content">
-                                <i class="fas fa-table text-2xl mb-2 group-hover:scale-110 transition-transform"></i>
-                                <span class="font-semibold">Tableau de Compétences</span>
+                        <button class="interactive-btn group w-full">
+                            <div class="btn-content flex flex-col items-center">
+                                <i
+                                    class="fas fa-table text-2xl mb-2 text-primary-blue group-hover:text-white transition-colors"></i>
+                                <span class="font-semibold text-sm">Compétences</span>
                             </div>
                         </button>
 
-                        <button class="interactive-btn group">
-                            <div class="btn-content">
-                                <i class="fas fa-rss text-2xl mb-2 group-hover:scale-110 transition-transform"></i>
-                                <span class="font-semibold">Veille Informationnelle</span>
+                        <button class="interactive-btn group w-full">
+                            <div class="btn-content flex flex-col items-center">
+                                <i
+                                    class="fas fa-rss text-2xl mb-2 text-primary-blue group-hover:text-white transition-colors"></i>
+                                <span class="font-semibold text-sm">Veille Info</span>
                             </div>
                         </button>
                     </div>
 
-                    <div class="flex gap-6 justify-center sm:justify-start">
-                        <a href="#" target="_blank" class="social-btn github-btn group">
-                            <i
-                                class="fab fa-github text-4xl group-hover:rotate-[360deg] transition-transform duration-500"></i>
-                        </a>
-                        <a href="#" target="_blank" class="social-btn linkedin-btn group">
-                            <i
-                                class="fab fa-linkedin text-4xl group-hover:rotate-[360deg] transition-transform duration-500"></i>
-                        </a>
-                    </div>
                 </div>
 
-                <div class="card-reveal transition duration-500 ease-out transform translate-y-10 opacity-0 relative"
+                <div class="card-reveal transition duration-500 ease-out transform translate-y-10 opacity-0 relative order-2 lg:order-2"
                     data-delay="100">
-                    <div class="orbit-system-container w-full h-[500px] flex justify-center items-center relative">
+                    <div class="orbit-system-container w-full h-[450px] flex justify-center items-center relative">
 
                         <div
-                            class="central-photo-wrapper relative z-20 w-48 h-48 rounded-full border-4 border-primary-blue shadow-[0_0_30px_rgba(59,130,246,0.5)] overflow-hidden">
-                            <img src="./img/selfie.JPG" alt="Paco Hybord" class="w-full h-full object-cover">
+                            class="central-photo-wrapper relative z-20 w-56 h-56 rounded-full border-4 border-gray-800 shadow-[0_0_40px_rgba(59,130,246,0.3)] overflow-hidden">
+                            <img src="./img/selfie.JPG" alt="Paco Hybord"
+                                class="w-full h-full object-cover transform hover:scale-110 transition duration-700">
                         </div>
 
                         <div class="orbit-container absolute inset-0 z-10 pointer-events-none">
@@ -219,22 +228,23 @@
 
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
     <section id="competences" class="py-20 md:py-32 bg-secondary-gray border-t border-gray-700">
         <div class="container mx-auto px-4 max-w-6xl">
-            <h2 class="font-extrabold text-4xl text-white mb-2">Mes <span class="text-primary-blue">Compétences</span>
-            </h2>
+
+            <h2 class="text-4xl font-bold text-gray-400 uppercase tracking-widest mb-8">Compétences</h2>
 
             <div id="certifications-container"
                 class="max-w-6xl mx-auto card-reveal transform translate-y-10 opacity-0 px-4 mt-12 mb-0"
                 data-delay="100">
 
                 <div class="text-center mb-10" data-aos="fade-up">
-                    <h3 class="text-3xl font-bold text-primary-blue mb-8 text-center">
-                        Certifications et Formations
+                    <h3 class="text-xl font-bold text-gray-400 uppercase tracking-widest mb-8 text-center">
+                        Certifications
                     </h3>
                 </div>
 
@@ -315,14 +325,13 @@
 
                     <div data-aos="fade-up" data-aos-delay="300" class="certif-item">
                         <div class="certif-image-wrapper">
-                            <img src="./img/certifications/placeholder_web.png" alt="Développement Web Avancé"
-                                class="certif-img">
-                            <a href="./pdf/placeholder_web.pdf" target="_blank" class="certif-link-icon"
+                            <img src="./img/badge/css.png" alt="Développement Web Avancé" class="certif-img">
+                            <a href="./img/certificat/css.pdf" target="_blank" class="certif-link-icon"
                                 title="Voir le certificat">
                                 <i class="fas fa-eye"></i>
                             </a>
                         </div>
-                        <p class="certif-title">Développement Web Avancé</p>
+                        <p class="certif-title">CSS essentials</p>
                     </div>
 
                     <div data-aos="fade-up" data-aos-delay="400" class="certif-item">
@@ -364,8 +373,9 @@
                 </div>
 
             </div>
-            <h3 class="text-3xl font-bold text-primary-blue mb-12 text-center mt-40">
-                Langages et Frameworks
+
+            <h3 class="text-xl font-bold text-gray-400 uppercase tracking-widest mb-12 text-center mt-40">
+                Languages et frameworks
             </h3>
 
             <div class="horizontal-marquee-container mb-4">
@@ -458,7 +468,7 @@
                 <section id="skills" class="py-5">
                     <div class="max-w-6xl mx-auto">
                         <div class="text-center mb-10" data-aos="fade-up">
-                            <h3 class="text-3xl font-bold text-primary-blue mb-8 text-center">
+                            <h3 class="text-xl font-bold text-gray-400 uppercase tracking-widest mb-8 text-center">
                                 IDE et Logiciels
                             </h3>
                         </div>
@@ -575,7 +585,8 @@
 
     <section id="projets" class="py-20 md:py-32 border-t border-gray-700">
         <div class="container mx-auto px-4 max-w-6xl">
-            <h2 class="section-title">Mes Réalisations SLAM</h2>
+
+            <h2 class="text-4xl font-bold text-gray-400 uppercase tracking-widest mb-8">Projets</h2>
 
             <div class="grid md:grid-cols-2 gap-10">
 
@@ -612,24 +623,25 @@
 
     <section id="contact" class="py-20 md:py-32 bg-gray-800 border-t border-gray-700">
         <div class="container mx-auto px-4 max-w-6xl">
-            
-            <div class="text-center mb-12">
-                <h3 class="text-3xl font-bold text-primary-blue mb-8 text-center">
-                        Contactez-Moi
-                    </h3>
+
+            <div class=" mb-12">
+                <h2 class="text-4xl font-bold text-gray-400 uppercase tracking-widest mb-8">
+                    Contactez-Moi
+                </h2>
                 <p class="text-xl text-gray-300 max-w-2xl mx-auto">
-                    Développeur SLAM disponible pour vos projets et opportunités professionnelles. 
+                    Développeur SLAM disponible pour vos projets et opportunités professionnelles.
                     N'hésitez pas à me contacter pour en savoir plus.
                 </p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-10 items-stretch">
-                
-                <div class="bg-gray-900/50 p-8 rounded-2xl border border-gray-700 shadow-2xl flex flex-col justify-between">
-                    
+
+                <div
+                    class="bg-gray-900/50 p-8 rounded-2xl border border-gray-700 shadow-2xl flex flex-col justify-between">
+
                     <form action="https://formspree.io/f/xaqwnnza" method="POST" class="space-y-6">
                         <h3 class="text-2xl font-bold text-white mb-6">Envoyez un message</h3>
-                        
+
                         <div>
                             <label class="block text-sm font-medium text-gray-400 mb-2">Votre Nom / Entreprise</label>
                             <input type="text" name="nom" required
@@ -660,24 +672,27 @@
                     <div class="mt-8 pt-6 border-t border-gray-700 flex items-center justify-between">
                         <span class="text-gray-400 font-medium">Retrouvez-moi sur :</span>
                         <div class="flex space-x-4 text-2xl">
-                            <a href="#" target="_blank" class="text-gray-400 hover:text-primary-blue transition transform hover:scale-110">
+                            <a href="#" target="_blank"
+                                class="text-gray-400 hover:text-primary-blue transition transform hover:scale-110">
                                 <i class="fab fa-linkedin"></i>
                             </a>
-                            <a href="#" target="_blank" class="text-gray-400 hover:text-primary-blue transition transform hover:scale-110">
+                            <a href="#" target="_blank"
+                                class="text-gray-400 hover:text-primary-blue transition transform hover:scale-110">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <div id="contact-animation-container" class="bg-gray-900/50 p-8 rounded-2xl border border-gray-700 shadow-2xl h-full min-h-[500px] flex items-center justify-center relative overflow-hidden">
-                    
+                <div id="contact-animation-container"
+                    class="bg-gray-900/50 p-8 rounded-2xl border border-gray-700 shadow-2xl h-full min-h-[500px] flex items-center justify-center relative overflow-hidden">
+
                     <div class="text-gray-500 font-mono text-center">
                         <i class="fas fa-cube text-6xl mb-4 text-gray-700 animate-pulse"></i>
                         <p>[Zone Animation 3D/Canvas]</p>
                         <p class="text-sm mt-2 opacity-50">S'aligne auto avec le formulaire</p>
                     </div>
-                    
+
                 </div>
 
             </div>

@@ -255,26 +255,26 @@ if (!document.getElementById('ripple-keyframes')) {
 }
 
 // ===========================================
-// 9. Animation Solaire/Planétaire (VRAI PLANÈTES)
+// 9. Animation Solaire/Planétaire (POINTS LUMINEUX)
 // ===========================================
 const orbitContainer = document.querySelector('.orbit-container');
 
-// CONFIGURATION DES PLANÈTES RÉALISTES
-// type: correspond à la classe CSS (.planet-mars, etc.) qui donnera l'apparence
+// CONFIGURATION DES POINTS LUMINEUX
+// Modification : Tailles réduites (size) pour ressembler à des points et non des planètes
 const ORBIT_DATA = [
-    // Mars (plus proche, plus rapide, petite)
-    { radius: 130, size: 14, type: 'planet-mars', speed: 8 },
-    // Terre (milieu, vitesse moyenne, taille moyenne)
-    { radius: 180, size: 22, type: 'planet-earth', speed: 14 },
-    // Saturne (loin, lente, grande + anneaux)
-    { radius: 240, size: 30, type: 'planet-saturn', speed: 25 }
+    // Point 1 (proche, rapide, petit)
+    { radius: 130, size: 8, type: 'planet-mars', speed: 8 },
+    // Point 2 (milieu, vitesse moyenne, moyen)
+    { radius: 180, size: 12, type: 'planet-earth', speed: 14 },
+    // Point 3 (loin, lent, moyen)
+    { radius: 240, size: 10, type: 'planet-saturn', speed: 25 }
 ];
 
 
 function createOrbitAnimation() {
     if (!orbitContainer) return;
     
-    // Créer les orbes, les cercles, et les planètes (satellites)
+    // Créer les orbes, les cercles, et les "planètes" (maintenant des points)
     ORBIT_DATA.forEach((orbit, index) => {
         // 1. Créer le Cercle d'Orbite (l'anneau statique)
         const orbitCircle = document.createElement('div');
@@ -285,7 +285,7 @@ function createOrbitAnimation() {
         orbitCircle.style.height = `${diameter}px`;
         orbitContainer.appendChild(orbitCircle);
         
-        // 2. Créer l'Orbe Contenant la Planète (qui tourne sur elle-même)
+        // 2. Créer l'Orbe Contenant le Point (qui tourne sur elle-même)
         const planetOrbit = document.createElement('div');
         planetOrbit.className = 'planet-orbit';
         planetOrbit.style.width = `${diameter}px`;
@@ -293,9 +293,9 @@ function createOrbitAnimation() {
         // Ajout d'une variable CSS pour la vitesse de rotation
         planetOrbit.style.setProperty('--rotation-speed', `${orbit.speed}s`);
         
-        // 3. Créer la Planète (VRAIE PLANÈTE via CSS)
+        // 3. Créer le Point Lumineux
         const planet = document.createElement('div');
-        // Ajoute la classe de base .planet ET la classe spécifique (ex: .planet-mars)
+        // Ajoute la classe de base .planet ET la classe spécifique (utilisée pour le style unique maintenant)
         planet.className = `planet ${orbit.type}`;
         
         planet.style.width = `${orbit.size}px`;
