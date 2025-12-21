@@ -1,4 +1,4 @@
-|-------------------------------------------------------------------------- | Styles CSS Personnalisés pour le Portfolio SLAM |-------------------------------------------------------------------------- */
+/* |-------------------------------------------------------------------------- | Styles CSS Personnalisés pour le Portfolio SLAM |-------------------------------------------------------------------------- */
 /* --- Définition des variables pour le Glassmorphism (adaptées au thème sombre) --- */
 
 :root {
@@ -277,11 +277,11 @@
 
 
 /* Changement de couleur au survol de l'icône elle-même */
-
+/* MODIFICATION : Couleur forcée en bleu #3b82f6 avec !important et effet de zoom */
 .certif-link-icon:hover {
-
-    color: var(--primary);
-
+    color: #3b82f6 !important;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%) scale(1.1);
 }
 
 
@@ -970,13 +970,12 @@
 
 
 /* Pour les images insérées (Devicons), nous garantissons la bonne taille */
-
+/* MODIFICATION : Ajout du filtre pour rendre les logos bleus (#3b82f6) */
 .glass-card img.card-icon {
-
-    /* Les images Devicons sont en couleur, nous n'appliquons pas de filtre */
-
     margin-bottom: 10px;
-
+    /* Ce filtre transforme l'image en couleur #3b82f6 */
+    filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(202deg) brightness(98%) contrast(96%);
+    transition: filter 0.3s ease;
 }
 
 
