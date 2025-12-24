@@ -469,7 +469,7 @@
                     <div class="max-w-6xl mx-auto">
                         <div class="text-center mb-10" data-aos="fade-up">
                             <h3 class="text-xl font-bold text-gray-400 uppercase tracking-widest mb-8 text-center">
-                                IDE et Logiciels
+                                IDE et Logiciel
                             </h3>
                         </div>
 
@@ -583,40 +583,285 @@
         </div>
     </section>
 
-    <section id="projets" class="py-20 md:py-32 border-t border-gray-700">
+    <section id="projets" class="py-20 md:py-32 border-t border-gray-700 bg-gray-900">
         <div class="container mx-auto px-4 max-w-6xl">
 
-            <h2 class="text-4xl font-bold text-gray-400 uppercase tracking-widest mb-8">Projets</h2>
+            <h2 class="text-4xl font-bold text-gray-400 uppercase tracking-widest mb-12 relative text-center">
+                Mes Projets
+            </h2>
 
-            <div class="grid md:grid-cols-2 gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                <div
-                    class="bg-gray-800 p-8 rounded-xl shadow-2xl hover:shadow-primary-blue/20 transition duration-300 project-card card-reveal transform translate-y-10 opacity-0">
-                    <h3 class="text-3xl font-bold text-primary-blue mb-3">Projet Gestion de Stage</h3>
-                    <p class="text-gray-400 mb-4 font-mono text-sm">PHP, Laravel, MariaDB, Docker</p>
-                    <p class="text-gray-300 mb-6">
-                        Application de suivi des conventions de stage pour l'établissement. J'ai géré le développement
-                        du Back-end : routage, ORM, authentification et API JSON.
-                    </p>
-                    <div class="space-x-4">
-                        <a href="#" class="text-lg text-white hover:text-primary-blue font-semibold">Voir la Démo »</a>
-                        <a href="#" class="text-lg text-gray-400 hover:text-white transition">Code Source</a>
+                <article
+                    class="bg-gray-800 border border-gray-700 hover:border-primary-blue/50 transition duration-300 group flex flex-col h-full shadow-lg hover:shadow-primary-blue/10">
+                    <div class="h-40 overflow-hidden relative w-full">
+                        <img src="./img/CleanCars.png" alt="Projet Gestion Stage"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                        <div
+                            class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <a href="gestion-stage.html"
+                                class="text-white border border-white px-3 py-1 hover:bg-white hover:text-black transition uppercase text-[10px] tracking-widest font-bold">
+                                Détails
+                            </a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="bg-gray-800 p-8 rounded-xl shadow-2xl hover:shadow-primary-blue/20 transition duration-300 project-card card-reveal transform translate-y-10 opacity-0"
-                    data-delay="100">
-                    <h3 class="text-3xl font-bold text-primary-blue mb-3">Portfolio Version 1 (Personnel)</h3>
-                    <p class="text-gray-400 mb-4 font-mono text-sm">HTML, CSS Pur, JS, Netlify</p>
-                    <p class="text-gray-300 mb-6">
-                        Première itération de mon portfolio personnel. Un projet axé sur l'optimisation du chargement et
-                        le design épuré, démontrant une bonne base en Front-end.
-                    </p>
-                    <div class="space-x-4">
-                        <a href="#" class="text-lg text-white hover:text-primary-blue font-semibold">Voir la Démo »</a>
-                        <a href="#" class="text-lg text-gray-400 hover:text-white transition">Code Source</a>
+                    <div class="p-3 bg-gray-800 border-t border-gray-700 flex flex-col justify-center flex-grow">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3
+                                class="text-base font-bold text-white group-hover:text-primary-blue transition truncate">
+                                <a href="gestion-stage.html">Gestion de Stage</a>
+                            </h3>
+                            <a href="https://github.com/ton-profil/ton-repo" target="_blank"
+                                class="text-gray-500 hover:text-white transition">
+                                <i class="fas fa-external-link-alt text-xs"></i>
+                            </a>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-2 py-0.5 text-[10px] font-bold text-primary-blue border border-primary-blue/30 bg-primary-blue/10 uppercase">Laravel</span>
+                            <span
+                                class="px-2 py-0.5 text-[10px] font-bold text-primary-blue border border-primary-blue/30 bg-primary-blue/10 uppercase">MariaDB</span>
+                            <span
+                                class="px-2 py-0.5 text-[10px] font-bold text-primary-blue border border-primary-blue/30 bg-primary-blue/10 uppercase">Docker</span>
+                        </div>
                     </div>
-                </div>
+                </article>
+
+                <article
+                    class="bg-gray-800 border border-gray-700 hover:border-primary-blue/50 transition duration-300 group flex flex-col h-full shadow-lg hover:shadow-primary-blue/10">
+                    <div class="h-40 overflow-hidden relative w-full">
+                        <img src="./img/projets/portfolio.png" alt="Portfolio"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                        <div
+                            class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <a href="portfolio-v1.html"
+                                class="text-white border border-white px-3 py-1 hover:bg-white hover:text-black transition uppercase text-[10px] tracking-widest font-bold">Détails</a>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-gray-800 border-t border-gray-700 flex flex-col justify-center flex-grow">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3
+                                class="text-base font-bold text-white group-hover:text-primary-blue transition truncate">
+                                <a href="portfolio-v1.html">Portfolio V1</a>
+                            </h3>
+                            <a href="#" class="text-gray-500 hover:text-white transition"><i
+                                    class="fas fa-external-link-alt text-xs"></i></a>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-2 py-0.5 text-[10px] font-bold text-primary-blue border border-primary-blue/30 bg-primary-blue/10 uppercase">HTML5</span>
+                            <span
+                                class="px-2 py-0.5 text-[10px] font-bold text-primary-blue border border-primary-blue/30 bg-primary-blue/10 uppercase">CSS3</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article
+                    class="bg-gray-800 border border-gray-700 hover:border-primary-blue/50 transition duration-300 group flex flex-col h-full shadow-lg hover:shadow-primary-blue/10">
+                    <div class="h-40 overflow-hidden relative w-full">
+                        <img src="./img/projets/app_android.png" alt="App Android"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                        <div
+                            class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <a href="app-mobile.html"
+                                class="text-white border border-white px-3 py-1 hover:bg-white hover:text-black transition uppercase text-[10px] tracking-widest font-bold">Détails</a>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-gray-800 border-t border-gray-700 flex flex-col justify-center flex-grow">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3
+                                class="text-base font-bold text-white group-hover:text-primary-blue transition truncate">
+                                <a href="app-mobile.html">App Mobile SIO</a>
+                            </h3>
+                            <a href="#" class="text-gray-500 hover:text-white transition"><i
+                                    class="fas fa-external-link-alt text-xs"></i></a>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-2 py-0.5 text-[10px] font-bold text-primary-blue border border-primary-blue/30 bg-primary-blue/10 uppercase">Java</span>
+                            <span
+                                class="px-2 py-0.5 text-[10px] font-bold text-primary-blue border border-primary-blue/30 bg-primary-blue/10 uppercase">Android</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article
+                    class="bg-gray-800 border border-gray-700 hover:border-primary-blue/50 transition duration-300 group flex flex-col h-full shadow-lg hover:shadow-primary-blue/10">
+                    <div class="h-40 overflow-hidden relative w-full">
+                        <img src="./img/projets/api_rest.png" alt="API"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                        <div
+                            class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <a href="api-ecommerce.html"
+                                class="text-white border border-white px-3 py-1 hover:bg-white hover:text-black transition uppercase text-[10px] tracking-widest font-bold">Détails</a>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-gray-800 border-t border-gray-700 flex flex-col justify-center flex-grow">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3
+                                class="text-base font-bold text-white group-hover:text-primary-blue transition truncate">
+                                <a href="api-ecommerce.html">API E-Commerce</a>
+                            </h3>
+                            <a href="#" class="text-gray-500 hover:text-white transition"><i
+                                    class="fas fa-external-link-alt text-xs"></i></a>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-2 py-0.5 text-[10px] font-bold text-primary-blue border border-primary-blue/30 bg-primary-blue/10 uppercase">Symfony</span>
+                            <span
+                                class="px-2 py-0.5 text-[10px] font-bold text-primary-blue border border-primary-blue/30 bg-primary-blue/10 uppercase">API
+                                Platform</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article
+                    class="bg-gray-800 border border-gray-700 hover:border-primary-blue/50 transition duration-300 group flex flex-col h-full shadow-lg hover:shadow-primary-blue/10">
+                    <div class="h-40 overflow-hidden relative w-full">
+                        <img src="./img/projets/bot_discord.png" alt="Bot Discord"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                        <div
+                            class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <a href="bot-discord.html"
+                                class="text-white border border-white px-3 py-1 hover:bg-white hover:text-black transition uppercase text-[10px] tracking-widest font-bold">Détails</a>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-gray-800 border-t border-gray-700 flex flex-col justify-center flex-grow">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3
+                                class="text-base font-bold text-white group-hover:text-primary-blue transition truncate">
+                                <a href="bot-discord.html">Bot Discord</a>
+                            </h3>
+                            <a href="#" class="text-gray-500 hover:text-white transition"><i
+                                    class="fas fa-external-link-alt text-xs"></i></a>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-2 py-0.5 text-[10px] font-bold text-primary-blue border border-primary-blue/30 bg-primary-blue/10 uppercase">Python</span>
+                            <span
+                                class="px-2 py-0.5 text-[10px] font-bold text-primary-blue border border-primary-blue/30 bg-primary-blue/10 uppercase">Discord.py</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article
+                    class="bg-gray-800 border border-gray-700 hover:border-primary-blue/50 transition duration-300 group flex flex-col h-full shadow-lg hover:shadow-primary-blue/10">
+                    <div class="h-40 overflow-hidden relative w-full">
+                        <img src="./img/projets/parc_auto.png" alt="C#"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                        <div
+                            class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <a href="parc-auto.html"
+                                class="text-white border border-white px-3 py-1 hover:bg-white hover:text-black transition uppercase text-[10px] tracking-widest font-bold">Détails</a>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-gray-800 border-t border-gray-700 flex flex-col justify-center flex-grow">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3
+                                class="text-base font-bold text-white group-hover:text-primary-blue transition truncate">
+                                <a href="parc-auto.html">Gestion Parc Auto</a>
+                            </h3>
+                            <a href="#" class="text-gray-500 hover:text-white transition"><i
+                                    class="fas fa-external-link-alt text-xs"></i></a>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-2 py-0.5 text-[10px] font-bold text-primary-blue border border-primary-blue/30 bg-primary-blue/10 uppercase">C#</span>
+                            <span
+                                class="px-2 py-0.5 text-[10px] font-bold text-primary-blue border border-primary-blue/30 bg-primary-blue/10 uppercase">.NET</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article
+                    class="bg-gray-800 border border-gray-700 hover:border-primary-blue/50 transition duration-300 group flex flex-col h-full shadow-lg hover:shadow-primary-blue/10">
+                    <div class="h-40 overflow-hidden relative w-full">
+                        <img src="./img/projets/wordpress_asso.png" alt="WP"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                        <div
+                            class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <a href="site-asso.html"
+                                class="text-white border border-white px-3 py-1 hover:bg-white hover:text-black transition uppercase text-[10px] tracking-widest font-bold">Détails</a>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-gray-800 border-t border-gray-700 flex flex-col justify-center flex-grow">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3
+                                class="text-base font-bold text-white group-hover:text-primary-blue transition truncate">
+                                <a href="site-asso.html">Site Asso</a>
+                            </h3>
+                            <a href="#" class="text-gray-500 hover:text-white transition"><i
+                                    class="fas fa-external-link-alt text-xs"></i></a>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-2 py-0.5 text-[10px] font-bold text-primary-blue border border-primary-blue/30 bg-primary-blue/10 uppercase">Wordpress</span>
+                            <span
+                                class="px-2 py-0.5 text-[10px] font-bold text-primary-blue border border-primary-blue/30 bg-primary-blue/10 uppercase">PHP</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article
+                    class="bg-gray-800 border border-gray-700 hover:border-primary-blue/50 transition duration-300 group flex flex-col h-full shadow-lg hover:shadow-primary-blue/10">
+                    <div class="h-40 overflow-hidden relative w-full">
+                        <img src="./img/projets/veille_tech.png" alt="Veille"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                        <div
+                            class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <a href="veille-tech.html"
+                                class="text-white border border-white px-3 py-1 hover:bg-white hover:text-black transition uppercase text-[10px] tracking-widest font-bold">Détails</a>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-gray-800 border-t border-gray-700 flex flex-col justify-center flex-grow">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3
+                                class="text-base font-bold text-white group-hover:text-primary-blue transition truncate">
+                                <a href="veille-tech.html">Outil de Veille</a>
+                            </h3>
+                            <a href="#" class="text-gray-500 hover:text-white transition"><i
+                                    class="fas fa-external-link-alt text-xs"></i></a>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-2 py-0.5 text-[10px] font-bold text-primary-blue border border-primary-blue/30 bg-primary-blue/10 uppercase">NodeJS</span>
+                            <span
+                                class="px-2 py-0.5 text-[10px] font-bold text-primary-blue border border-primary-blue/30 bg-primary-blue/10 uppercase">RSS</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article
+                    class="bg-gray-800 border border-gray-700 hover:border-primary-blue/50 transition duration-300 group flex flex-col h-full shadow-lg hover:shadow-primary-blue/10">
+                    <div class="h-40 overflow-hidden relative w-full">
+                        <img src="./img/projets/lab_cyber.png" alt="Cyber"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                        <div
+                            class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <a href="lab-virtuel.html"
+                                class="text-white border border-white px-3 py-1 hover:bg-white hover:text-black transition uppercase text-[10px] tracking-widest font-bold">Détails</a>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-gray-800 border-t border-gray-700 flex flex-col justify-center flex-grow">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3
+                                class="text-base font-bold text-white group-hover:text-primary-blue transition truncate">
+                                <a href="lab-virtuel.html">Lab Virtuel</a>
+                            </h3>
+                            <a href="#" class="text-gray-500 hover:text-white transition"><i
+                                    class="fas fa-external-link-alt text-xs"></i></a>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-2 py-0.5 text-[10px] font-bold text-primary-blue border border-primary-blue/30 bg-primary-blue/10 uppercase">Linux</span>
+                            <span
+                                class="px-2 py-0.5 text-[10px] font-bold text-primary-blue border border-primary-blue/30 bg-primary-blue/10 uppercase">Network</span>
+                        </div>
+                    </div>
+                </article>
+
             </div>
         </div>
     </section>
