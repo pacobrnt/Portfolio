@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto'Lution – Projet Portfolio</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="../styles.css">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#3b82f6',
+                        'secondary-gray': '#1f2937',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #111827;
+        }
+
+        .carousel-item {
+            transition: opacity 0.7s ease-in-out;
+        }
+        
+        /* Lumière d'ambiance "Spotlight" venant du haut */
+        .hero-spotlight {
+            position: absolute;
+            top: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1000px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, transparent 70%);
+            filter: blur(60px);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Classe utilitaire pour les cartes (Z-index + fond flouté) */
+        .card-z-index {
+            position: relative;
+            z-index: 10;
+            background-color: rgba(31, 41, 55, 0.7); 
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-gray-200 font-sans antialiased selection:bg-primary-blue selection:text-white">
+
+    <nav class="fixed top-6 left-6 z-50">
+        <a href="../index.html#projets" 
+           class="glass-panel flex items-center justify-center w-12 h-12 rounded-full text-gray-300 hover:text-primary-blue hover:scale-110 transition duration-300 border border-gray-700 bg-gray-900/80 backdrop-blur-md shadow-lg group">
+            <i class="fas fa-arrow-left text-xl group-hover:-translate-x-1 transition-transform"></i>
+        </a>
+    </nav>
+
+    <header class="relative pt-32 pb-20 overflow-hidden z-10">
+        <div class="hero-spotlight"></div>
+
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight" data-aos="fade-down">
+                CleanCars<span class="text-primary-blue">.</span>
+            </h1>
+            <p class="text-xl text-gray-400 font-mono mb-12" data-aos="fade-up" data-aos-delay="100">
+                Site Vitrine & Identité Numérique
+            </p>
+
+            <div class="relative w-full max-w-[60rem] mx-auto rounded-2xl overflow-hidden shadow-2xl border border-gray-700 group bg-gray-800 z-20" data-aos="zoom-in" data-aos-delay="200" style="aspect-ratio: 16/9;">
+                
+                <div class="carousel-item absolute inset-0 opacity-100 z-10" data-index="0">
+                    <img src="../img/projets/Cleanaccueil.png" alt="Aperçu 1" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-6 text-left">
+                        <p class="text-white font-bold text-lg">Page d'accueil</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item absolute inset-0 opacity-0 z-0" data-index="1">
+                    <img src="../img/projets/Cleanpropo.png" alt="Aperçu 2" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-6 text-left">
+                        <p class="text-white font-bold text-lg">À propos</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item absolute inset-0 opacity-0 z-0" data-index="2">
+                    <img src="../img/projets/Cleanréa.png" alt="Aperçu 3" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-6 text-left">
+                        <p class="text-white font-bold text-lg">Réalisation</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item absolute inset-0 opacity-0 z-0" data-index="3">
+                    <img src="../img/projets/Cleantarifs.png" alt="Aperçu 4" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-6 text-left">
+                        <p class="text-white font-bold text-lg">Tarification</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item absolute inset-0 opacity-0 z-0" data-index="4">
+                    <img src="../img/projets/Cleancontact.png" alt="Aperçu 5" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-6 text-left">
+                        <p class="text-white font-bold text-lg">Formulaire de contact</p>
+                    </div>
+                </div>
+
+                <button id="prevSlide" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-primary-blue text-white w-10 h-10 rounded-full backdrop-blur-sm flex items-center justify-center transition opacity-0 group-hover:opacity-100 z-20">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="nextSlide" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-primary-blue text-white w-10 h-10 rounded-full backdrop-blur-sm flex items-center justify-center transition opacity-0 group-hover:opacity-100 z-20">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
+                    <button class="indicator w-6 h-2 rounded-full bg-white transition-all" data-target="0"></button>
+                    <button class="indicator w-2 h-2 rounded-full bg-gray-500 hover:bg-white transition-all" data-target="1"></button>
+                    <button class="indicator w-2 h-2 rounded-full bg-gray-500 hover:bg-white transition-all" data-target="2"></button>
+                    <button class="indicator w-2 h-2 rounded-full bg-gray-500 hover:bg-white transition-all" data-target="3"></button>
+                    <button class="indicator w-2 h-2 rounded-full bg-gray-500 hover:bg-white transition-all" data-target="4"></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 max-w-5xl pb-20 space-y-20 relative z-10">
+
+        <section class="grid md:grid-cols-3 gap-10">
+            <div class="md:col-span-2 space-y-6" data-aos="fade-right">
+                <div class="card-z-index p-8 rounded-2xl border border-gray-700/50 shadow-2xl h-full hover:border-primary-blue/50 transition duration-300">
+                    <h2 class="text-lg font-bold text-gray-400 uppercase tracking-widest mb-4 border-b border-gray-700 pb-2 flex items-center">
+                        <i class="fas fa-info-circle text-primary-blue mr-3"></i> À propos du projet
+                    </h2>
+                    <p class="text-gray-300 leading-relaxed text-justify mb-4">
+                        Ce projet personnel vise à concevoir un site vitrine complet pour 
+                        <strong class="text-white">Auto'Lution</strong>. L'objectif est de renforcer la visibilité de l'entreprise, 
+                        d'attirer une nouvelle clientèle et de centraliser les informations (histoire, prestations, tarifs).
+                    </p>
+                    <p class="text-gray-300 leading-relaxed text-justify">
+                        C’est mon <span class="text-primary-blue font-semibold">tout premier projet</span>. Bien qu'il soit encore en phase de conception 
+                        et techniquement accessible, il représente une étape clé dans mon apprentissage du développement web et de la gestion de projet.
+                    </p>
+                </div>
+            </div>
+
+            <div class="md:col-span-1 space-y-6" data-aos="fade-left">
+                <div class="card-z-index h-full flex flex-col p-6 rounded-2xl border border-gray-700/50 shadow-xl hover:border-primary-blue/50 transition duration-300">
+                    <h3 class="text-lg font-bold text-gray-400 uppercase tracking-widest mb-4 border-b border-gray-700 pb-2 flex items-center">
+                        <i class="fas fa-layer-group text-primary-blue mr-3"></i> Stack Technique
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-gray-300">
+                            <i class="fab fa-html5 text-orange-500 w-8 text-xl"></i> HTML5
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fab fa-css3-alt text-blue-500 w-8 text-xl"></i> CSS3
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <div class="w-8 flex justify-start">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" 
+                                     alt="Tailwind Logo" class="w-5 h-5">
+                            </div>
+                            Tailwind CSS
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid md:grid-cols-2 gap-10">
+            <div class="bg-gray-800/80 p-8 rounded-xl border border-gray-700 hover:border-primary-blue/50 transition duration-300 relative z-10" data-aos="fade-up">
+                <h3 class="text-lg font-bold text-gray-400 uppercase tracking-widest mb-4 border-b border-gray-700 pb-2 flex items-center">
+                    <i class="fas fa-bullseye text-primary-blue mr-3"></i> Objectifs
+                </h3>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-primary-blue mt-1 mr-3 text-sm"></i>
+                        <span class="text-gray-400">Accroître la visibilité numérique de l'entreprise.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-primary-blue mt-1 mr-3 text-sm"></i>
+                        <span class="text-gray-400">Canaliser les clients vers les messageries (Mail, WhatsApp).</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-primary-blue mt-1 mr-3 text-sm"></i>
+                        <span class="text-gray-400">Professionnaliser l'image de marque (SEO, Design).</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-primary-blue mt-1 mr-3 text-sm"></i>
+                        <span class="text-gray-400">Intégration avec les réseaux sociaux (Instagram, TikTok).</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-gray-800/80 p-8 rounded-xl border border-gray-700 hover:border-primary-blue/50 transition duration-300 relative z-10" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-lg font-bold text-gray-400 uppercase tracking-widest mb-4 border-b border-gray-700 pb-2 flex items-center">
+                    <i class="fas fa-sitemap text-primary-blue mr-3"></i> Structure
+                </h3>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="bg-gray-700 text-white text-xs font-bold px-2 py-1 rounded mr-3 mt-0.5">01</span>
+                        <div>
+                            <strong class="text-gray-200 block">Charte Éthique</strong>
+                            <span class="text-sm text-gray-500">Mise en avant des valeurs de l'entreprise.</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="bg-gray-700 text-white text-xs font-bold px-2 py-1 rounded mr-3 mt-0.5">02</span>
+                        <div>
+                            <strong class="text-gray-200 block">Histoire</strong>
+                            <span class="text-sm text-gray-500">Storytelling autour de la création d'Auto'Lution.</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="bg-gray-700 text-white text-xs font-bold px-2 py-1 rounded mr-3 mt-0.5">03</span>
+                        <div>
+                            <strong class="text-gray-200 block">Prestations & Tarifs</strong>
+                            <span class="text-sm text-gray-500">Cartes détaillées des services proposés.</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="text-center pt-10 border-t border-gray-800 relative z-10">
+            <div class="max-w-3xl mx-auto mb-12">
+                <p class="text-lg text-gray-400 italic">
+                    "Malgré ses imperfections, ce projet représente une étape importante dans mon apprentissage, me permettant de passer de la théorie à la pratique."
+                </p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-6" data-aos="zoom-in">
+                <a href="https://github.com/pacobrnt/CleanAuto.git" class="group relative inline-flex items-center justify-center px-8 py-3 text-lg font-bold text-white transition-all duration-300 bg-primary-blue rounded-lg hover:bg-blue-600 hover:scale-105 shadow-lg shadow-primary-blue/30 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-blue">
+                    <i class="fab fa-github mr-2 text-xl group-hover:rotate-12 transition-transform"></i>
+                    Voir le Code
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-8 border-t border-gray-800 text-center text-gray-500 bg-gray-900 relative z-10">
+        <p>© 2025 Paco Hybord. Projet Auto'Lution.</p>
+    </footer>
+
+    <button id="scrollToTopBtn"
+        class="fixed bottom-8 right-8 bg-primary-blue text-white p-4 rounded-full shadow-lg shadow-primary-blue/40 transition duration-300 hover:bg-blue-600 hover:-translate-y-1 focus:outline-none z-50 hidden opacity-0">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        // --- SCROLL TO TOP ---
+        const scrollBtn = document.getElementById("scrollToTopBtn");
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollBtn.classList.remove('hidden');
+                setTimeout(() => scrollBtn.classList.remove('opacity-0'), 10);
+            } else {
+                scrollBtn.classList.add('opacity-0');
+                setTimeout(() => scrollBtn.classList.add('hidden'), 300);
+            }
+        });
+        scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // --- CAROUSEL LOGIC ---
+        const slides = document.querySelectorAll('.carousel-item');
+        const indicators = document.querySelectorAll('.indicator');
+        const prevBtn = document.getElementById('prevSlide');
+        const nextBtn = document.getElementById('nextSlide');
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+        let slideInterval;
+
+        function showSlide(index) {
+            if (index >= totalSlides) index = 0;
+            if (index < 0) index = totalSlides - 1;
+
+            currentSlide = index;
+
+            slides.forEach((slide, i) => {
+                if (i === currentSlide) {
+                    slide.classList.remove('opacity-0', 'z-0');
+                    slide.classList.add('opacity-100', 'z-10');
+                } else {
+                    slide.classList.remove('opacity-100', 'z-10');
+                    slide.classList.add('opacity-0', 'z-0');
+                }
+            });
+
+            indicators.forEach((indicator, i) => {
+                if (i === currentSlide) {
+                    indicator.classList.remove('bg-gray-500', 'w-2');
+                    indicator.classList.add('bg-white', 'w-6');
+                } else {
+                    indicator.classList.remove('bg-white', 'w-6');
+                    indicator.classList.add('bg-gray-500', 'w-2');
+                }
+            });
+        }
+
+        function nextSlide() { showSlide(currentSlide + 1); }
+        function prevSlide() { showSlide(currentSlide - 1); }
+
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetTimer();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetTimer();
+        });
+
+        indicators.forEach((ind) => {
+            ind.addEventListener('click', (e) => {
+                const targetIndex = parseInt(e.target.getAttribute('data-target'));
+                showSlide(targetIndex);
+                resetTimer();
+            });
+        });
+
+        function startTimer() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        function resetTimer() {
+            clearInterval(slideInterval);
+            startTimer();
+        }
+
+        startTimer();
+    </script>
+</body>
+</html>
